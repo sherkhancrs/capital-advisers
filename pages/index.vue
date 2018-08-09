@@ -12,16 +12,16 @@
       <div class="services">
         <h1>Услуги</h1>
         <div class="service-types">
-          <div class="service" v-for="(service, index) in services" :key="service.id">
-            <div class="service-logo" :class="[index === 1 ? 'logo-orange' : '']">
+          <div class="service" v-for="(service, index) in services" :key="service.id"  @mouseout="hoveroutService(index)" @mouseover="hoverService(index)">
+            <nuxt-link :to="service.url"><div class="service-logo" :class="[service.hover === true ? 'logo-orange' : '']">
               <img  width="50px" height="50px" :src="getImgUrl(service.logo, index)" :alt="service.logo">
-            </div>
-            <h3>{{service.name}}</h3>
+            </div></nuxt-link>
+            <nuxt-link :to="service.url"><h3 class="service-name">{{service.name}}</h3></nuxt-link>
             <p>{{service.description}}</p>
           </div>
         </div>
         <div class="button-container">
-          <button class="button-reverse">Перейти</button>
+          <nuxt-link to="services"><button class="button-reverse">Перейти</button></nuxt-link>
         </div>
       </div>
     </div>
@@ -60,26 +60,33 @@
 
 <script>
 export default {
+  layout: "landing",
   data() {
     return {
       services: [
         {
+          url: "services/consultation",
           logo: "consultation",
           name: "Инвистиционный консалтинг",
           description:
-            "Nunc mattis erat sed odio faucibus, id semper mi ultrices. Duis volutpat, est vel vehicula varius, mi mi dignissim augue, vel lacinia purus mauris a enim. Donec odio ligula, luctus id maximus sit amet, convallis et nibh. Sed faucibus erat et purus sodales, non lobortis leo facilisis. Integer turpis odio, vehicula vel semper in, placerat at magna. Donec pretium consectetur magna, eu hendrerit leo. Pellentesque et leo ut dolor ornare ornare."
+            "Nunc mattis erat sed odio faucibus, id semper mi ultrices. Duis volutpat, est vel vehicula varius",
+          hover: false
         },
         {
+          url: "services/commerce",
           logo: "commerce",
           name: "Торговые Рекомендации",
           description:
-            "Nunc mattis erat sed odio faucibus, id semper mi ultrices. Duis volutpat, est vel vehicula varius, mi mi dignissim augue, vel lacinia purus mauris a enim. Donec odio ligula, luctus id maximus sit amet, convallis et nibh. Sed faucibus erat et purus sodales, non lobortis leo facilisis. Integer turpis odio, vehicula vel semper in, placerat at magna. Donec pretium consectetur magna, eu hendrerit leo. Pellentesque et leo ut dolor ornare ornare."
+            "Nunc mattis erat sed odio faucibus, id semper mi ultrices. Duis volutpat, est vel vehicula varius",
+          hover: false
         },
         {
+          url: "services/commerce2",
           logo: "combo-chart",
           name: "Инвистиционный консалтинг",
           description:
-            "Nunc mattis erat sed odio faucibus, id semper mi ultrices. Duis volutpat, est vel vehicula varius, mi mi dignissim augue, vel lacinia purus mauris a enim. Donec odio ligula, luctus id maximus sit amet, convallis et nibh. Sed faucibus erat et purus sodales, non lobortis leo facilisis. Integer turpis odio, vehicula vel semper in, placerat at magna. Donec pretium consectetur magna, eu hendrerit leo. Pellentesque et leo ut dolor ornare ornare."
+            "Nunc mattis erat sed odio faucibus, id semper mi ultrices. Duis volutpat, est vel vehicula varius",
+          hover: false
         }
       ],
       biggerBetters: [
@@ -126,9 +133,15 @@ export default {
   },
   methods: {
     getImgUrl(name, index) {
-      if (index === 1) {
+      if (this.services[index].hover === true) {
         return require(`~/assets/icons/${name}-white.png`);
       } else return require(`~/assets/icons/${name}.png`);
+    },
+    hoverService(index) {
+      this.services[index].hover = true;
+    },
+    hoveroutService(index) {
+      this.services[index].hover = false;
     }
   }
 };
@@ -158,12 +171,13 @@ export default {
   margin-left: 60px;
   border-radius: 10px;
   height: 512px;
+  transition: 0.3s all ease-in-out;
+}
+.service:hover {
+  margin-top: -40px;
 }
 .service:first-child {
   margin-left: 0;
-}
-.service:nth-child(2) {
-  margin-top: -40px;
 }
 .service-logo {
   width: 110px;

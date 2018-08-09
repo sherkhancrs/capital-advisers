@@ -9,8 +9,13 @@
         </div>
       </div>
       <div class="hero-content">
-        <h1 class="page-header">Service</h1>
-        <p class="page-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+        <h1>Ваш Персональный</h1>
+        <h1>Инвестиционный Советник</h1>
+        <p class="hero-description">Мы даем объективные, Nunc mattis erat sed odio faucibus, id semper mi ultrices. Duis volutpat, est vel vehicula varius, mi mi dignissim augue, vel lacinia purus mauris a enim.</p>
+        <div class="action-buttons">
+          <nuxt-link to="services"><button class="button">НАШИ УСЛУГИ</button></nuxt-link>
+          <button class="button-reverse" style="margin-left: 30px">ОТКРЫТЬ СЧЕТ</button>
+        </div>
       </div>
     </div>
     
@@ -59,10 +64,11 @@ export default {
 }
 .hero-content {
   background: transparent;
-  padding: 90px 200px;
+  padding: 200px;
 }
 .hero {
-  background-color: #595959;
+  height: 50%;
+  background: url("~/assets/images/bg1.jpg") no-repeat;
   background-size: 100% 100%;
   background-position-y: -80%;
   color: #ffffff;
@@ -80,15 +86,5 @@ h1 {
   font-size: 18px;
   line-height: 40px;
   width: 60%;
-}
-.page-header {
-  font-size: 34px;
-  margin: 0;
-}
-.page-description {
-  font-size: 17px;
-  line-height: 19px;
-  width: 464px;
-  margin-top: 40px;
 }
 </style>

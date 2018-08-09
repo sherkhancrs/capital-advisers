@@ -39,6 +39,10 @@
     padding:0 200px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .button {
     padding: 10px 45px;
     background-color: #ffffff;
@@ -46,7 +50,7 @@
     color: #000000;
     border-radius: 5px;
     border-color: transparent; 
-    transition: 1s all ease-in-out;
+    transition: 0.1s all ease-in-out;
 }
 .button:hover {
     background-color: #ef741c;
@@ -60,13 +64,17 @@
     color: #ffffff;
     border-radius: 5px;
     border-color: transparent; 
-    transition: 1s all ease-in-out;
+    transition: 0.1s all ease-in-out;
 }
 .button-reverse:hover {
     background-color: #ffffff;
     color: #000000;
 }
 
+.service-name {
+  width: 165px;
+  color: black;
+}
 
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 

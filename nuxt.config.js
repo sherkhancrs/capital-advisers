@@ -50,6 +50,16 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
+
+  router: {
+    scrollBehavior: function (to, from, savedPosition) {
+      return {
+        x: 0,
+        y: 0
+      };
+    }
+  },
+
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios'
