@@ -109,7 +109,6 @@ export default {
 .service:hover {
   transform: scale(1.1);
   box-shadow: 0 25px 50px rgba(0,0,0,0.06);
-  z-index: 3;
 }
 .service::after {
 	opacity: 1;

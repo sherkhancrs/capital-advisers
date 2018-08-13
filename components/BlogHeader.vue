@@ -7,6 +7,13 @@
             {{item.name}}
           </nuxt-link>
         </div>
+        <div class="menu-bar web-hide" @click="toggleMenu"></div>
+      </div>
+      
+      <div class="menus" v-show="menuShow">
+        <nuxt-link @click="toggleMenu" class="header-menu-item" v-for="item in menu" :key="item.id" :to="item.url">
+            {{item.name}}
+        </nuxt-link>
       </div>
       <div class="hero-content">
 				<div class="slug-header-container">
@@ -21,6 +28,7 @@
 export default {
   data() {
     return {
+      menuShow: false,
       menu: [
         { name: "Главная", url: "/" },
         { name: "О нас", url: "/about" },
@@ -41,6 +49,10 @@ export default {
 	methods: {
     getImgUrl(name, index) {
       return require(`~/assets/icons/${name}-white.png`);
+    },
+    toggleMenu() {
+      this.menuShow = !this.menuShow;
+      console.log(this.menuShow);
     }
   }
 };

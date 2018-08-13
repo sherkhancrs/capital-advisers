@@ -7,6 +7,13 @@
             {{item.name}}
           </nuxt-link>
         </div>
+        <div class="menu-bar web-hide" @click="toggleMenu"></div>
+      </div>
+      
+      <div class="menus" v-show="menuShow">
+        <nuxt-link @click="toggleMenu" class="header-menu-item" v-for="item in menu" :key="item.id" :to="item.url">
+            {{item.name}}
+        </nuxt-link>
       </div>
       <div class="hero-content">
         <h1>Ваш Персональный</h1>
@@ -24,6 +31,7 @@
 export default {
   data() {
     return {
+      menuShow: false,
       menu: [
         { name: "Главная", url: "/" },
         { name: "О нас", url: "/about" },
@@ -33,6 +41,12 @@ export default {
         { name: "FAQ", url: "/faq" }
       ]
     };
+  },
+  methods: {
+    toggleMenu() {
+      this.menuShow = !this.menuShow;
+      console.log(this.menuShow);
+    }
   }
 };
 </script>
@@ -123,6 +137,9 @@ h1 {
   .open-account {
     margin-left: 0;
     margin-top: 20px;
+  }
+  .menu-bar {
+    background: rgba(0, 0, 0, 0.5);
   }
 }
 </style>
