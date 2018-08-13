@@ -15,7 +15,8 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
     "flexboxgrid": "^6.3.1",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "vue-count-to": "^1.0.13"
   },
   "devDependencies": {
     "cross-env": "^5.0.1",

@@ -62,7 +62,7 @@ export default {
   padding: 15px 25px;
   cursor: pointer;
   border: 1px solid transparent;
-  font-family: "SFUI-Bold";
+  font-family: "SFUI-Bold", "Lato-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   text-decoration: none;
   color: white;
 }
@@ -126,5 +126,22 @@ h1 {
 	height: 105px;
 	overflow: hidden;
 	width: 40%;
+}
+@media (max-width: 40em) {
+  .header-container {
+    padding: 0;
+  }
+  .hero-content {
+    padding: 0;
+  }
+  .header-menu-item {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+  }
+  .slug-header-container{
+    width: 100%;
+    overflow-wrap: break-word;
+  }
 }
 </style>

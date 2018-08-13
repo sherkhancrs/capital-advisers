@@ -9,8 +9,10 @@
         </div>
       </div>
       <div class="hero-content">
-        <h1 class="page-header">Service</h1>
-        <p class="page-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+				<div class="slug-header-container">
+					<h1 class="slug-header">About Us</h1>
+                    <p class="slug-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris faucibus odio vitae arcu bibendum rutrum non at augue. Suspendisse semper nisl a suscipit dignissim. In ac nunc at magna pellentesque sodales sit amet fermentum neque. Maecenas mi sapien, porttitor sit amet quam sed, aliquet sagittis ligula. Ut egestas, ante malesuada accumsan ultrices, neque nisl luctus orci, in tempor ligula tellus in libero</p>
+				</div>
       </div>
     </div>
     
@@ -27,6 +29,18 @@ export default {
         { name: "Контакты", url: "/contacts" }
       ]
     };
+	},
+	computed: {
+		title() {
+			if (this.$route.params.slug === "commerce") {
+				return "Торговые Рекомендации";
+			} else return "Инвистиционный Консалтинг";
+		}
+	},
+	methods: {
+    getImgUrl(name, index) {
+      return require(`~/assets/icons/${name}-white.png`);
+    }
   }
 };
 </script>
@@ -59,14 +73,19 @@ export default {
 }
 .hero-content {
   background: transparent;
-  padding: 90px 200px;
+  padding: 70px 200px 60px;
 }
 .hero {
-  background-color: #595959;
-  background-size: 100% 100%;
-  background-position-y: -80%;
-  color: #ffffff;
+    background: #f9f9f9;
+    background-size: 100% 100%;
+	color: #000000;
+	backdrop-filter: blur(20px);
 }
+/* @supports (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px)) {
+  .hero {
+    background: url("https://newevolutiondesigns.com/images/freebies/galaxy-wallpaper-29.jpg") no-repeat;
+  }
+} */
 .logo {
   width: 175px;
   height: 50px;
@@ -91,20 +110,37 @@ h1 {
   width: 464px;
   margin-top: 40px;
 }
+.line {
+	width: 56px;
+	height: 6px;
+	background-color: #ef741c;
+	margin: 20px 0 30px;
+}
+.slug-header {
+	font-size: 34px;
+	margin: 0;
+}
+.slug-text {
+    margin: 0;
+    margin-top: 30px;
+    line-height: 22px;
+    font-size: 20px;
+}
 @media (max-width: 40em) {
   .header-container {
     padding: 0;
   }
   .hero-content {
-    padding: 0;
+    padding: 50px 5%;
   }
   .header-menu-item {
     margin: 0;
     padding: 0;
     font-size: 13px;
   }
-  .page-description {
+  .slug-header-container{
     width: 100%;
+    overflow-wrap: break-word;
   }
 }
 </style>

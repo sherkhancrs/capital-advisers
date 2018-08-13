@@ -14,7 +14,7 @@
         <p class="hero-description">Мы даем объективные, Nunc mattis erat sed odio faucibus, id semper mi ultrices. Duis volutpat, est vel vehicula varius, mi mi dignissim augue, vel lacinia purus mauris a enim.</p>
         <div class="action-buttons">
           <nuxt-link to="services"><button class="button">НАШИ УСЛУГИ</button></nuxt-link>
-          <button class="button-reverse" style="margin-left: 30px">ОТКРЫТЬ СЧЕТ</button>
+          <nuxt-link to="/"><button class="button-reverse open-account">ОТКРЫТЬ СЧЕТ</button></nuxt-link>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@ export default {
   padding: 15px 25px;
   cursor: pointer;
   border: 1px solid transparent;
-  font-family: "SFUI-Bold";
+  font-family: "SFUI-Bold", "Lato-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   text-decoration: none;
   color: white;
 }
@@ -80,11 +80,48 @@ export default {
   border-radius: 20px;
 }
 h1 {
-  font-size: 28px;
+  font-size: 50px;
+  margin: 0;
+  line-height: 58px;
 }
 .hero-description {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 40px;
   width: 60%;
+}
+.open-account {
+  margin-left: 30px;
+}
+.action-buttons {
+  display: flex;
+}
+@media (max-width: 40em) {
+  .header-container {
+    padding: 0;
+  }
+  .hero-content {
+    padding: 50px 5%;
+  }
+  .hero-description {
+    width: 100%;
+  }
+  .header-menu-item {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+  }
+  h1 {
+    font-size: 30px;
+    margin: 0;
+    line-height: 38px;
+  }
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .open-account {
+    margin-left: 0;
+    margin-top: 20px;
+  }
 }
 </style>

@@ -25,4 +25,9 @@ export default {
 .layout {
   padding: 0 200px;
 }
+@media (max-width: 40em) {
+	.layout {
+    padding: 0 5%;
+  }
+}
 </style>

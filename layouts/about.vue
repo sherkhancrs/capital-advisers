@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <f-header-service></f-header-service>
+    <about-header></about-header>
     <div class="layout">
       <nuxt/>
     </div>
@@ -8,12 +8,12 @@
   </div>
 </template>
 <script>
-import FHeaderService from "~/components/HeaderService";
+import AboutHeader from "~/components/AboutHeader";
 import FFooter from "~/components/Footer";
 
 export default {
   components: {
-    FHeaderService,
+    AboutHeader,
     FFooter
   }
 };

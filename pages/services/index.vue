@@ -1,9 +1,9 @@
 <template>
-    <div style="margin: 68px 0 138px;">
+    <div class="service-container">
         <div class="service-types">
           <div class="service" v-for="(service, index) in services" :key="service.id"  @mouseout="hoveroutService(index)" @mouseover="hoverService(index)">
             <nuxt-link :to="service.url"><div class="service-logo" :class="[service.hover === true ? 'logo-orange' : '']">
-              <img  width="50px" height="50px" :src="getImgUrl(service.logo, index)" :alt="service.logo">
+              <img  width="33px" height="33px" :src="getImgUrl(service.logo, index)" :alt="service.logo">
             </div></nuxt-link>
             <nuxt-link :to="service.url"><h3 class="service-name">{{service.name}}</h3></nuxt-link>
             <p>{{service.description}}</p>
@@ -60,6 +60,9 @@ export default {
 };
 </script>
 <style scoped>
+.service-container {
+  margin: 68px 0 138px;
+}
 .service-types {
   display: flex;
   margin-top: 70px;
@@ -73,7 +76,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	background-color: #ffffff;
-  box-shadow: 0 13px 20px 12px #eeeeee;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
   width: 327px;
   border-radius: 10px;
   height: 397px;
@@ -81,7 +84,8 @@ export default {
   transition: 0.3s all ease-in-out;
 }
 .service:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.06);
   z-index: 3;
 }
 .service::after {
@@ -91,16 +95,28 @@ export default {
   margin-left: 0;
 }
 .service-logo {
-  width: 110px;
-  height: 110px;
+  width: 77px;
+  height: 77px;
   background-color: #f0f0f0;
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .logo-orange {
   background-color: #ef741c;
+}
+
+@media (max-width: 40em) {
+	.service-container {
+    margin: 20px 0;
+  }
+  .service-types {
+    flex-wrap: wrap;
+  }
+  .service {
+    margin: 0;
+  }
 }
 </style>
 
