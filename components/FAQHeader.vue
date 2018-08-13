@@ -10,8 +10,8 @@
       </div>
       <div class="hero-content">
 				<div class="slug-header-container">
-					<h1 class="slug-header" >Blog / News</h1>
-                    <p class="slug-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry dummy text of the printing and typesetting industry dummy text of the printing and typesetting industry</p>
+					<h1 class="slug-header" >FAQ</h1>
+                    <p class="slug-text">Frequently Asked Questions</p>
 				</div>
       </div>
     </div>
@@ -30,15 +30,15 @@ export default {
         { name: "FAQ", url: "/faq" }
       ]
     };
-	},
-	computed: {
-		title() {
-			if (this.$route.params.slug === "commerce") {
-				return "Торговые Рекомендации";
-			} else return "Инвистиционный Консалтинг";
-		}
-	},
-	methods: {
+  },
+  computed: {
+    title() {
+      if (this.$route.params.slug === "commerce") {
+        return "Торговые Рекомендации";
+      } else return "Инвистиционный Консалтинг";
+    }
+  },
+  methods: {
     getImgUrl(name, index) {
       return require(`~/assets/icons/${name}-white.png`);
     }
@@ -77,10 +77,10 @@ export default {
   padding: 70px 200px 60px;
 }
 .hero {
-	background-color: #ef741c;
-    background-size: 100% 100%;
-	color: #ffffff;
-	backdrop-filter: blur(20px);
+  background: #e4e4e4;
+  background-size: 100% 100%;
+  color: #000000;
+  backdrop-filter: blur(20px);
 }
 /* @supports (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px)) {
   .hero {
@@ -112,38 +112,39 @@ h1 {
   margin-top: 40px;
 }
 .line {
-	width: 56px;
-	height: 6px;
-	background-color: #ef741c;
-	margin: 20px 0 30px;
+  width: 56px;
+  height: 6px;
+  background-color: #ef741c;
+  margin: 20px 0 30px;
 }
 .slug-header {
-	font-size: 46px;
-	margin: 0;
+  font-size: 34px;
+  margin: 0;
+}
+.slug-header-container {
+  width: 60%;
 }
 .slug-text {
-    margin: 0;
-    margin-top: 30px;
-    line-height: 22px;
+  margin: 0;
+  margin-top: 30px;
+  line-height: 22px;
+  font-size: 20px;
 }
 @media (max-width: 40em) {
-  .header-container {
-    padding: 0;
-  }
   .hero-content {
     padding: 50px 5%;
+  }
+  .header-container {
+    padding: 0;
   }
   .header-menu-item {
     margin: 0;
     padding: 0;
     font-size: 13px;
   }
-  .slug-header-container{
+  .slug-header-container {
     width: 100%;
     overflow-wrap: break-word;
-  }
-  .slug-header {
-    font-size: 42px;
   }
 }
 </style>

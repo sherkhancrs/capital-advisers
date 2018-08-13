@@ -1,7 +1,24 @@
 <template>
     <div class="service-container">
         <div class="service-types">
-          <div class="service" v-for="(service, index) in services" :key="service.id"  @mouseout="hoveroutService(index)" @mouseover="hoverService(index)">
+          <div v-swiper:mySwiper="swiperOption" class="web-hide">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(service, index) in services" :key="service.id">
+              <div class="s-item">
+                <nuxt-link :to="service.url">
+                <div class="service-logo">
+                  <img  width="33px" height="33px" :src="getImgUrl(service.logo, index)" alt="">
+                </div>
+                </nuxt-link>
+                <nuxt-link :to="service.url"><h3 class="service-name">{{service.name}}</h3></nuxt-link>
+                <p class="service-name">{{service.description}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+          <div class="service mobile-hide" v-for="(service, index) in services" :key="service.id"  @mouseout="hoveroutService(index)" @mouseover="hoverService(index)">
             <nuxt-link :to="service.url"><div class="service-logo" :class="[service.hover === true ? 'logo-orange' : '']">
               <img  width="33px" height="33px" :src="getImgUrl(service.logo, index)" :alt="service.logo">
             </div></nuxt-link>
@@ -16,6 +33,12 @@
 export default {
   data() {
     return {
+      swiperOption: {
+        pagination: {
+          el: ".swiper-pagination"
+        },
+        loop: true
+      },
       services: [
         {
           url: "services/consultation",
@@ -116,6 +139,33 @@ export default {
   }
   .service {
     margin: 0;
+  }
+  .swiper-wrapper {
+    display: flex;
+  }
+  .swiper-pagination {
+    position: relative;
+    display: inherit;
+  }
+  .s-container {
+    display: flex;
+  }
+  .s-item {
+    width: 100%;
+    max-width: 280px;
+    min-width: 280px;
+    height: 300px;
+    margin: 5px;
+    background-color: #ef741c;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
+
+  }
+  .service-types {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
   }
 }
 </style>

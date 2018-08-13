@@ -1,0 +1,33 @@
+<template>
+  <div class="container">
+    <f-a-q-header></f-a-q-header>
+    <div class="layout">
+      <nuxt/>
+    </div>
+    <f-footer></f-footer>
+  </div>
+</template>
+<script>
+import FAQHeader from "~/components/FAQHeader";
+import FFooter from "~/components/Footer";
+
+export default {
+  components: {
+    FAQHeader,
+    FFooter
+  }
+};
+</script>
+<style>
+.container {
+  min-height: 100vh;
+}
+.layout {
+  padding: 0 200px;
+}
+@media (max-width: 40em) {
+	.layout {
+    padding: 0 5%;
+  }
+}
+</style>

@@ -26,7 +26,8 @@ export default {
         { name: "О нас", url: "/about" },
         { name: "Услуги", url: "/services" },
         { name: "Блог", url: "/blog" },
-        { name: "Контакты", url: "/contacts" }
+        { name: "Контакты", url: "/contacts" },
+        { name: "FAQ", url: "/faq" }
       ]
     };
   },
@@ -58,7 +59,7 @@ export default {
 .header-menu-item {
   font-size: 17px;
   margin-left: 45px;
-  padding: 15px 25px;
+  padding: 15px 15px;
   cursor: pointer;
   border: 1px solid transparent;
   font-family: "SFUI-Bold","Lato-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;

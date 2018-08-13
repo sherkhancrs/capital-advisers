@@ -24,7 +24,8 @@ export default {
             { name: "О нас", url: "/about" },
             { name: "Услуги", url: "/services" },
             { name: "Блог", url: "/blog" },
-            { name: "Контакты", url: "/contacts" }
+            { name: "Контакты", url: "/contacts" },
+            { name: "FAQ", url: "/faq" }
           ]
         },
         {

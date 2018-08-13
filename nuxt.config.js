@@ -46,7 +46,8 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    "~/plugins/backend"
+    "~/plugins/backend",
+    { src: "~/plugins/swiper", ssr: false }
   ],
 
   /*

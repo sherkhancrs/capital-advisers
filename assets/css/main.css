@@ -71,9 +71,18 @@ a {
   width: 165px;
   color: black;
 }
+.web-hide {
+  display: none;
+}
 @media (max-width: 40em) {
 	.layout {
     padding: 0;
+  }
+  .web-hide {
+    display: inherit;
+  }
+  .mobile-hide {
+    display: none !important;
   }
 }
 

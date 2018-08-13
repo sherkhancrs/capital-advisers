@@ -12,7 +12,26 @@
       <div class="services">
         <h1>Услуги</h1>
         <div class="service-types">
-          <div class="service" v-for="(service, index) in services" :key="service.id"  @mouseout="hoveroutService(index)" @mouseover="hoverService(index)">
+        <div v-swiper:mySwiper="swiperOption" class="web-hide">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(service, index) in services" :key="service.id">
+              <div class="s-item">
+                <nuxt-link :to="service.url">
+                <div class="service-logo">
+                  <img  width="33px" height="33px" :src="getImgUrl(service.logo, index)" alt="">
+                </div>
+                </nuxt-link>
+                <nuxt-link :to="service.url"><h3 class="service-name">{{service.name}}</h3></nuxt-link>
+                <p class="service-name">{{service.description}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+
+
+          <div class="service mobile-hide" v-for="(service, index) in services" :key="service.id"  @mouseout="hoveroutService(index)" @mouseover="hoverService(index)">
             <nuxt-link :to="service.url"><div class="service-logo" :class="[service.hover === true ? 'logo-orange' : '']">
               <img  width="33px" height="33px" :src="getImgUrl(service.logo, index)" :alt="service.logo">
             </div></nuxt-link>
@@ -63,8 +82,7 @@
 </template>
 
 <script>
-import countTo from 'vue-count-to';
-
+import countTo from "vue-count-to";
 
 export default {
   layout: "landing",
@@ -73,6 +91,12 @@ export default {
   },
   data() {
     return {
+      swiperOption: {
+        pagination: {
+          el: ".swiper-pagination"
+        },
+        loop: true
+      },
       ready: false,
       startVal: 0,
       decimals: 0,
@@ -175,7 +199,7 @@ export default {
       this.scrolled = window.scrollY > 0;
       var bb = document.querySelector(".bigger-better");
       var services = document.querySelector(".services");
-      var c = 0
+      var c = 0;
       if (window.scrollY + 300 >= bb.offsetTop) {
         this.$store.commit("INC_COUNTER");
         if (this.$store.state.counter <= 1) {
@@ -185,7 +209,7 @@ export default {
     },
     start() {
       var c = document.querySelector("#count");
-      for(var x = 0; x < 3; x++) {
+      for (var x = 0; x < 3; x++) {
         this.$refs.counter[x].start();
       }
     }
@@ -199,7 +223,7 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.$store.commit("RESET_COUNTER");
     next();
-  },
+  }
 };
 </script>
 
@@ -319,7 +343,9 @@ export default {
 }
 .reason-name {
   margin-left: 20px;
-  font-family: "SFUI-Bold", "Lato-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "SFUI-Bold", "Lato-Regular", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
 }
 .reason-description {
   color: #cecece;
@@ -354,20 +380,47 @@ p {
   margin-left: -5px;
 }
 @media (max-width: 40em) {
-  .about {
-    padding: 0 5%;
+  .swiper-wrapper {
+    display: flex;
   }
-  .services {
-    padding: 0 5%;
+  .swiper-pagination {
+    position: relative;
+    display: inherit;
   }
-  .service {
-    margin: 0;
+  .s-container {
+    display: flex;
+  }
+  .s-item {
+    width: 100%;
+    max-width: 280px;
+    min-width: 280px;
+    height: 300px;
+    margin: 5px;
+    background-color: #ef741c;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
+
   }
   .service-types {
-    flex-wrap: wrap;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+  }
+  .service-container {
+    display: flex;
+    width: 100% !important;
+    min-width: 280px;
+    margin-bottom: 10px;
+  }
+  .about {
+    padding: 10% 5%;
+  }
+  .services {
+    padding: 10% 5%;
   }
   .bigger-better {
-    padding: 0 5%;
+    padding: 10% 5%;
   }
   .bb-container {
     flex-wrap: wrap;
@@ -376,7 +429,7 @@ p {
     margin-left: 0;
   }
   .partners-block {
-    padding: 0 5%;
+    padding: 10% 5%;
     flex-wrap: wrap;
   }
   .reasons-container {
@@ -387,6 +440,38 @@ p {
   }
   .partners-container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10% 5% 10% 0;
+  }
+  .service {
+    padding: 5%;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    margin: 0;
+    border-radius: 10px;
+    transition: 0.3s all ease-in-out;
+    height: 412px;
+  }
+  .service:first-child {
+    margin-left: 0;
+  }
+  .service-logo {
+    width: 77px;
+    height: 77px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo-orange {
+    background-color: #ef741c;
+  }
+
+  .service-description {
+    line-height: 25px;
   }
 }
 </style>

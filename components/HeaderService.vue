@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="hero-content">
-				<img  width="58px" height="56px" :src="getImgUrl('consultation', index)" alt="">
+				<img  width="58px" height="56px" :src="getImgUrl('consultation')" alt="">
 				<div class="line"></div>
 				<div class="slug-header-container">
 					<h1 class="slug-header" >{{title}}</h1>
@@ -27,7 +27,8 @@ export default {
         { name: "О нас", url: "/about" },
         { name: "Услуги", url: "/services" },
         { name: "Блог", url: "/blog" },
-        { name: "Контакты", url: "/contacts" }
+        { name: "Контакты", url: "/contacts" },
+        { name: "FAQ", url: "/faq" }
       ]
     };
 	},
@@ -39,7 +40,7 @@ export default {
 		}
 	},
 	methods: {
-    getImgUrl(name, index) {
+    getImgUrl(name) {
       return require(`~/assets/icons/${name}-white.png`);
     }
   }
@@ -59,7 +60,7 @@ export default {
 .header-menu-item {
   font-size: 17px;
   margin-left: 45px;
-  padding: 15px 25px;
+  padding: 15px 15px;
   cursor: pointer;
   border: 1px solid transparent;
   font-family: "SFUI-Bold", "Lato-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -132,7 +133,8 @@ h1 {
     padding: 0;
   }
   .hero-content {
-    padding: 0;
+    padding: 50px 5%;
+    
   }
   .header-menu-item {
     margin: 0;
@@ -142,6 +144,9 @@ h1 {
   .slug-header-container{
     width: 100%;
     overflow-wrap: break-word;
+  }
+  .slug-header {
+    font-size: 42px;
   }
 }
 </style>
