@@ -69,7 +69,9 @@ export default {
 .url-header {
 	border-bottom: 2px solid #ef741c;
 	color: white;
-	font-size: 16px;
+  font-size: 16px;
+  padding-bottom: 6px;
+  font-family: "SFUI-Bold"
 }
 .links {
 	display: flex;
