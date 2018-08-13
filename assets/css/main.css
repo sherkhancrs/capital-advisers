@@ -2,7 +2,6 @@
     font-family: "SFUI";
     src: url("~/assets/fonts/SFUIDisplay-Bold.ttf");
     font-style: normal;
-    font-weight: 400;
     text-rendering: optimizeLegibility;
     font-display: optional;
 }
@@ -10,7 +9,6 @@
     font-family: "SFUI-Bold";
     src: url("~/assets/fonts/SFUIDisplay-Bold.ttf");
     font-style: normal;
-    font-weight: 400;
     text-rendering: optimizeLegibility;
     font-display: optional;
 }
@@ -18,7 +16,6 @@
     font-family: "SFUI-Semibold";
     src: url("~/assets/fonts/SFUIDisplay-Semibold.ttf");
     font-style: normal;
-    font-weight: 400;
     text-rendering: optimizeLegibility;
     font-display: optional;
 }
@@ -26,7 +23,6 @@
     font-family: "SFUI-Light";
     src: url("~/assets/fonts/SFUIDisplay-Light.ttf");
     font-style: normal;
-    font-weight: 400;
     text-rendering: optimizeLegibility;
     font-display: optional;
 }
