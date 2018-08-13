@@ -100,6 +100,7 @@ export default {
 <style scoped>
 h1 {
 	margin: 0;
+	font-size: 25px;
 }
 .faq-layout {
   padding-top: 80px;
