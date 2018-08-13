@@ -71,7 +71,7 @@ export default {
 	color: white;
   font-size: 16px;
   padding-bottom: 6px;
-  font-family: "SFUI-Bold"
+  font-family: "SFUI-Bold", "Lato-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .links {
 	display: flex;
