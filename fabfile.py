@@ -20,7 +20,11 @@ def git_pull():
 def generate_dist():
     run('cd %s; npm run generate' % env.app_path)
 
+def npm_install():
+    run('cd %s; npm install' % env.app_path)
+
 def deploy():
     git_stash()
     git_pull()
+    npm_install()
     generate_dist()
