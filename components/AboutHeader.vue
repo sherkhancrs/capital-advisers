@@ -64,10 +64,10 @@ export default {
   border: 1px solid transparent;
   font-family: "SFUI-Bold","Lato-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   text-decoration: none;
-  color: white;
+  color: #000000;
 }
 .header-menu-item:hover {
-  border: 1px solid white;
+  border: 1px solid #000000;
 }
 .header-menu-item:first {
   margin-left: 0;
