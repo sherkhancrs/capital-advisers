@@ -234,7 +234,7 @@ export default {
 }
 .text-description {
   margin-top: 60px;
-  line-height: 30px;
+  line-height: 20px;
 }
 .service-types {
   display: flex;

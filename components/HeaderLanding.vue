@@ -87,7 +87,7 @@ h1 {
 }
 .hero-description {
   font-size: 20px;
-  line-height: 40px;
+  line-height: 28px;
   width: 60%;
 }
 .open-account {
