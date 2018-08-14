@@ -31,8 +31,8 @@ export const actions = {
       .get("/blog/posts/")
       .then(response => {
 				const data = response.data;
-				console.log(data);
-        return commit("SET_POSTS", data.data);
+        console.log(data);
+        return commit("SET_POSTS", data);
       })
       .catch(error => {
         console.log(error)
@@ -58,11 +58,11 @@ export const actions = {
     commit
   }, filterParams) {
     return backend
-      .get("/blog/faqs/", { params: filterParams })
+      .get("/blog/posts/", { params: filterParams })
       .then(response => {
-				const data = response.data.response;
+				const data = response.data;
 				console.log(data);
-        return commit("SET_POSTS", data.data);
+        return commit("SET_POSTS", data);
       })
       .catch(error => {
         console.log(error)

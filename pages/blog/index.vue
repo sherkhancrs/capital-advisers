@@ -1,20 +1,49 @@
 <template>
     <div class="blogs-layout">
-        <input type="text" class="input" placeholder="Type to search ...">
+        <input  @keyup.enter="search" v-model="searchKey" type="text" class="input" placeholder="Type to search ...">
 				<div class="blogs-container">
-					<div class="blog-panel" v-for="blog in 10" :key="blog.id">
-						<div class="blog-image"></div>
-						<div class="blog-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry dummy text of the printing and typesetting industry dummy text of the printing and typesetting industry</div>
-						<p class="read-more">read more</p>
+					<div class="blog-panel" v-for="(post, index) in posts.results" :key="post.id">
+						<nuxt-link :to="`/blog/${post.id}`"><div class="blog-image" :style="{ 'background-image': 'linear-gradient(to bottom,rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%),url(' + post.image + ')' }">
+                <h1 class="post-title" :class="{'first-post-title': index === 0}">{{post.title}}</h1>
+                <p class="post-description">{{post.published_date | formatDate }}</p>
+            </div>
+						</nuxt-link>
+            
+						<div class="blog-description">{{post.body}}</div>
+						<nuxt-link :to="`/blog/${post.id}`"><p class="read-more">read more</p></nuxt-link>
 					</div>
 				</div>
     </div>
 </template>
 <script>
+import format from "date-fns/format";
+import ruLocale from "date-fns/locale/ru";
+
 export default {
   layout: "blog",
+  data() {
+    return {
+      searchKey: ""
+    };
+  },
   beforeMount() {
     this.$store.dispatch("loadPosts");
+  },
+  computed: {
+    posts() {
+      return this.$store.state.posts;
+    }
+  },
+  filters: {
+    formatDate: function(value) {
+      if (!value) return "";
+      return format(value, "DD MMM YYYY", { locale: ruLocale });
+    }
+  },
+  methods: {
+    search() {
+      this.$store.dispatch("searchPosts", { q: this.searchKey });
+    }
   }
 };
 </script>
@@ -24,8 +53,8 @@ export default {
   height: 50px;
   border: 1px solid #f8f8f8;
   border-radius: 7px;
-	padding: 16px 25px;
-	outline: none;
+  padding: 16px 25px;
+  outline: none;
 }
 .blogs-layout {
   margin: 45px 0;
@@ -52,28 +81,61 @@ export default {
   margin-left: 0;
 }
 .blog-image {
+  display: flex;
+  position: relative;
+  padding: 21px;
+  color: white;
   border-radius: 10px;
-  background-color: #ef741c;
   height: 180px;
+  background-repeat: no-repeat;
+  background-size: 100% 180px;
 }
 .blog-description {
   margin-top: 23px;
   font-size: 19px;
   line-height: 19px;
-  height: 58px;
+  max-height: 58px;
   overflow: hidden;
 }
 .read-more {
   color: #ef741c;
   margin: 0;
+  margin-top: 5px;
 }
+h1,
+p {
+  margin: 0;
+}
+.post-title {
+  align-self: center;
+  font-size: 20px;
+  line-height: 20px;
+  max-height: 80px;
+  overflow: hidden;
+}
+.first-post-title {
+  font-size: 35px;
+  line-height: 35px;
+  max-height: 105px;
+}
+.post-description {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 15px;
+}
+
 @media (max-width: 40em) {
-	.blogs-container {
-		justify-content: center;
-	}
-	.blog-panel {
-		margin-top: 30px !important;
-		margin-left: 0;
-	}
+  .blogs-container {
+    justify-content: center;
+  }
+  .blog-panel {
+    margin-top: 30px !important;
+    margin-left: 0;
+  }
+  .first-post-title {
+    font-size: 20px;
+    line-height: 20px;
+    max-height: 80px;
+  }
 }
 </style>
