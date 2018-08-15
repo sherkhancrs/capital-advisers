@@ -130,6 +130,9 @@ h1 {
   .faq-layout {
     padding-bottom: 0px;
   }
+  .line {
+    margin-left: 14px;
+  }
 }
 @media (min-width: 40em) and (max-width: 50em) {
   h1 {
@@ -147,6 +150,9 @@ h1 {
   }
   .faq-layout {
     padding-bottom: 0px;
+  }
+  .line {
+    margin-left: 14px;
   }
 }
 </style>
