@@ -95,11 +95,11 @@ export default {
   background-color: #ffffff;
 }
 .service {
-	padding: 25px;
-	display: flex;
-	flex-direction: column;
-	background-color: #ffffff;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
   width: 327px;
   border-radius: 10px;
   height: 397px;
@@ -108,10 +108,10 @@ export default {
 }
 .service:hover {
   transform: scale(1.1);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
 }
 .service::after {
-	opacity: 1;
+  opacity: 1;
 }
 .service:first-child {
   margin-left: 0;
@@ -130,7 +130,7 @@ export default {
 }
 
 @media (max-width: 40em) {
-	.service-container {
+  .service-container {
     margin: 20px 0;
   }
   .service-types {
@@ -147,8 +147,8 @@ export default {
     display: inherit;
   }
   .services {
-  padding: 20px 5% 78px;
-  } 
+    padding: 20px 5% 78px;
+  }
   .s-container {
     display: flex;
   }
@@ -162,7 +162,6 @@ export default {
     padding: 15px;
     background-color: white;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
-
   }
   .service-types {
     overflow: hidden;
@@ -172,7 +171,7 @@ export default {
 }
 
 @media (min-width: 40em) and (max-width: 50em) {
-.swiper-wrapper {
+  .swiper-wrapper {
     display: flex;
   }
   .swiper-pagination {
@@ -192,7 +191,6 @@ export default {
     padding: 15px;
     background-color: white;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
-
   }
   .about {
     padding: 10% 5%;
@@ -258,7 +256,37 @@ export default {
     line-height: 25px;
   }
 }
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .s-item {
+    max-width: 330px !important;
+    min-width: 330px !important;
+    height: 300px;
+  }
+}
 
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .s-item {
+    max-width: 330px !important;
+    min-width: 330px !important;
+    height: 300px;
+  }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
+  .s-item {
+    max-width: 360px !important;
+    min-width: 360px !important;
+    height: 300px;
+  }
+}
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  .s-item {
+    max-width: 315px !important;
+    min-width: 315px !important;
+    height: 300px;
+  }
+}
 </style>
 
 
