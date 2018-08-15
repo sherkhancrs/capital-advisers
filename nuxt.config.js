@@ -47,7 +47,8 @@ module.exports = {
    */
   plugins: [
     "~/plugins/backend",
-    { src: "~/plugins/swiper", ssr: false }
+    { src: "~/plugins/swiper", ssr: false },
+    { src: "~/plugins/pagination", ssr: false }
   ],
 
   /*

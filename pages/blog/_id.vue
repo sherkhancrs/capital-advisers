@@ -1,11 +1,19 @@
 <template>
     <div class="blog-layout">
-        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry dummy text of the printing and typesetting industry dummy text of the printing and typesetting industry</p>
+        <p class="text">{{post.body}}</p>
     </div>
 </template>
 <script>
 export default {
-  layout: "blogdetail"
+  layout: "blogdetail",
+  beforeMount() {
+    this.$store.dispatch("loadPostDetail", this.$route.params.id);
+  },
+  computed: {
+    post() {
+      return this.$store.state.postDetail;
+    }
+  }
 };
 </script>
 <style scoped>

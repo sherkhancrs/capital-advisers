@@ -1,15 +1,15 @@
 <template>
     <div class="faq-layout">
-			<div class="question-container" v-for="(question, index) in list" :key="question.id">
+			<div class="question-container" v-for="(item, index) in list" :key="item.id">
 				<div class="number">{{index + 1}}</div>
 				<div style="width: 100%; height: 100%">
 					<div class="question">
-						<h1>How to take advance of consulting from our service ?</h1>
-						<div class="circle" :class="{'circle-closed': question.open}" @click="toggleQuestion(index)"></div>
+						<h1>{{item.question}}</h1>
+						<div class="circle" :class="{'circle-closed': item.open}" @click="toggleQuestion(index)"></div>
 					</div>
-					<div class="answer" v-if="question.open">
+					<div class="answer" v-if="item.open">
 						<div class="line"></div>
-						<p class="answer-text">Nam lacus magna, varius id dignissim ut, bibendum non felis. Vivamus egestas ipsum nisl, quis iaculis ligula sagittis tincidunt. In egestas varius urna, at pellentesque risus sollicitudin sed. Morbi venenatis convallis facilisis. Curabitur eget semper ipsum. Vivamus mattis facilisis tellus id semper. Morbi ut risus tellus. Mauris vel odio mattis, placerat eros et, interdum magna. Phasellus ac pharetra tortor. Maecenas eget magna pharetra, volutpat lorem id, pharetra lectus.</p>
+						<p class="answer-text">{{item.answer}}</p>
 					</div>
 				</div>
 			</div>
@@ -20,68 +20,7 @@ export default {
   layout: "faq",
   data() {
     return {
-      list: [
-        {
-          question: "How to take advance of consulting from our service ?",
-          answer:
-            "Nam lacus magna, varius id dignissim ut, bibendum non felis. Vivamus egestas ipsum nisl, quis iaculis ligula sagittis tincidunt. In egestas varius urna, at pellentesque risus sollicitudin sed.",
-          open: false
-        },
-        {
-          question: "How to take advance of consulting from our service ?",
-          answer:
-            "Nam lacus magna, varius id dignissim ut, bibendum non felis. Vivamus egestas ipsum nisl, quis iaculis ligula sagittis tincidunt. In egestas varius urna, at pellentesque risus sollicitudin sed.",
-          open: false
-        },
-        {
-          question: "How to take advance of consulting from our service ?",
-          answer:
-            "Nam lacus magna, varius id dignissim ut, bibendum non felis. Vivamus egestas ipsum nisl, quis iaculis ligula sagittis tincidunt. In egestas varius urna, at pellentesque risus sollicitudin sed.",
-          open: false
-        },
-        {
-          question: "How to take advance of consulting from our service ?",
-          answer:
-            "Nam lacus magna, varius id dignissim ut, bibendum non felis. Vivamus egestas ipsum nisl, quis iaculis ligula sagittis tincidunt. In egestas varius urna, at pellentesque risus sollicitudin sed.",
-          open: false
-        },
-        {
-          question: "How to take advance of consulting from our service ?",
-          answer:
-            "Nam lacus magna, varius id dignissim ut, bibendum non felis. Vivamus egestas ipsum nisl, quis iaculis ligula sagittis tincidunt. In egestas varius urna, at pellentesque risus sollicitudin sed.",
-          open: false
-        },
-        {
-          question: "How to take advance of consulting from our service ?",
-          answer:
-            "Nam lacus magna, varius id dignissim ut, bibendum non felis. Vivamus egestas ipsum nisl, quis iaculis ligula sagittis tincidunt. In egestas varius urna, at pellentesque risus sollicitudin sed.",
-          open: false
-        },
-        {
-          question: "How to take advance of consulting from our service ?",
-          answer:
-            "Nam lacus magna, varius id dignissim ut, bibendum non felis. Vivamus egestas ipsum nisl, quis iaculis ligula sagittis tincidunt. In egestas varius urna, at pellentesque risus sollicitudin sed.",
-          open: false
-        },
-        {
-          question: "How to take advance of consulting from our service ?",
-          answer:
-            "Nam lacus magna, varius id dignissim ut, bibendum non felis. Vivamus egestas ipsum nisl, quis iaculis ligula sagittis tincidunt. In egestas varius urna, at pellentesque risus sollicitudin sed.",
-          open: false
-        },
-        {
-          question: "How to take advance of consulting from our service ?",
-          answer:
-            "Nam lacus magna, varius id dignissim ut, bibendum non felis. Vivamus egestas ipsum nisl, quis iaculis ligula sagittis tincidunt. In egestas varius urna, at pellentesque risus sollicitudin sed.",
-          open: false
-        },
-        {
-          question: "How to take advance of consulting from our service ?",
-          answer:
-            "Nam lacus magna, varius id dignissim ut, bibendum non felis. Vivamus egestas ipsum nisl, quis iaculis ligula sagittis tincidunt. In egestas varius urna, at pellentesque risus sollicitudin sed.",
-          open: false
-        }
-      ]
+      list: []
     };
   },
   methods: {
@@ -94,13 +33,29 @@ export default {
         }
       }
     }
+  },
+  beforeMount() {
+    this.$store.dispatch("loadFAQS");
+    var faqInterval = setInterval(() => {
+      if (this.$store.state.faqs.results) {
+        this.$store.state.faqs.results.forEach(faq => {
+          this.list.push({
+            question: faq.question,
+            answer: faq.answer,
+            open: false
+          });
+        });
+        clearInterval(faqInterval);
+      } else {
+      }
+    }, 100);
   }
 };
 </script>
 <style scoped>
 h1 {
-	margin: 0;
-	font-size: 25px;
+  margin: 0;
+  font-size: 25px;
 }
 .faq-layout {
   padding-top: 80px;
@@ -139,9 +94,9 @@ h1 {
   border-radius: 50%;
   background-color: #ef741c;
   width: 40px;
-	height: 40px;
-	min-height: 40px;
-	min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  min-width: 40px;
 }
 .circle-closed {
   background-color: #e4e4e4;
@@ -159,18 +114,39 @@ h1 {
   margin-left: 24px;
 }
 @media (max-width: 40em) {
-	h1 {
-		font-size: 18px;
-	}
-	.number {
-		width: 15%;
-		font-size: 31px;
-	}
-	.question {
-		padding: 0 14px;
-	}
-	.answer-text {
-		margin: 18px 14px;
-	}
+  h1 {
+    font-size: 18px;
+  }
+  .number {
+    width: 15%;
+    font-size: 31px;
+  }
+  .question {
+    padding: 0 14px;
+  }
+  .answer-text {
+    margin: 18px 14px;
+  }
+  .faq-layout {
+    padding-bottom: 0px;
+  }
+}
+@media (min-width: 40em) and (max-width: 50em) {
+  h1 {
+    font-size: 18px;
+  }
+  .number {
+    width: 15%;
+    font-size: 31px;
+  }
+  .question {
+    padding: 0 14px;
+  }
+  .answer-text {
+    margin: 18px 14px;
+  }
+  .faq-layout {
+    padding-bottom: 0px;
+  }
 }
 </style>

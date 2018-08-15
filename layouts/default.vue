@@ -30,4 +30,9 @@ export default {
     padding: 0 5%;
   }
 }
+@media (min-width: 40em) and (max-width: 50em) {
+  .layout {
+    padding: 0 5%;
+  }
+}
 </style>

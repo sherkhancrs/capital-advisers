@@ -61,4 +61,22 @@ p {
 		justify-content: center;
 	}
 }
+@media (min-width: 40em) and (max-width: 50em) {
+  .member {
+		margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  .member:first-child {
+    margin: 30px 50px;
+  }
+  .member:nth-child(odd){
+    /* margin-left: 0;
+    margin-right: 0; */
+  }
+	.team-container {
+		justify-content: center;
+	}
+}
+
 </style>

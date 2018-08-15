@@ -1,5 +1,5 @@
 <template>
-    <div class="hero">
+    <div class="hero" :style="{ 'background-image': 'linear-gradient(to bottom,rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%),url(' + post.image + ')' }">
       <div class="header-container">
         <div class="logo"></div>
         <div class="header-menu">
@@ -17,14 +17,16 @@
       </div>
       <div class="hero-content">
 				<div class="slug-header-container">
-					<h1 class="slug-header" >Making Cents of Online Investment Services - Which is Best?</h1>
-                    <p class="slug-text">2 Jan 2018</p>
+					<h1 class="slug-header">{{post.title}}</h1>
+                    <p class="slug-text">{{post.published_date | formatDate}}</p>
 				</div>
       </div>
     </div>
     
 </template>
 <script>
+import format from "date-fns/format";
+import ruLocale from "date-fns/locale/ru";
 export default {
   data() {
     return {
@@ -40,6 +42,9 @@ export default {
     };
 	},
 	computed: {
+    post() {
+      return this.$store.state.postDetail;
+    },
 		title() {
 			if (this.$route.params.slug === "commerce") {
 				return "Торговые Рекомендации";
@@ -52,7 +57,13 @@ export default {
     },
     toggleMenu() {
       this.menuShow = !this.menuShow;
-      console.log(this.menuShow);
+
+    }
+  },
+  filters: {
+    formatDate: function(value) {
+      if (!value) return "";
+      return format(value, "DD MMM YYYY", { locale: ruLocale });
     }
   }
 };
@@ -60,7 +71,7 @@ export default {
 <style scoped>
 .header-container {
   padding: 20px 200px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: space-between;
 }
@@ -89,10 +100,11 @@ export default {
   padding: 70px 200px 60px;
 }
 .hero {
-    background: rgba(0, 0, 0, 0.7);
-    background-size: 100% 100%;
 	color: #ffffff;
-	backdrop-filter: blur(20px);
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
 }
 /* @supports (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px)) {
   .hero {
@@ -143,6 +155,26 @@ h1 {
     font-size: 20px;
 }
 @media (max-width: 40em) {
+  .header-container {
+    padding: 0;
+  }
+  .hero-content {
+    padding: 50px 5%;
+  }
+  .header-menu-item {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+  }
+  .slug-header-container{
+    width: 100%;
+    overflow-wrap: break-word;
+  }
+  .menus a {
+  color: black;
+  }
+}
+@media (min-width: 40em) and (max-width: 50em) {
   .header-container {
     padding: 0;
   }

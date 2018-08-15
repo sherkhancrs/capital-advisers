@@ -111,7 +111,26 @@ export default {
 		align-items: center;
 	}
 	.urls {
-		margin-top: 30px;
+    margin-top: 30px;
+    width: 90%;
+	}
+	.brand-name {
+		text-align: center;
+	}
+}
+@media (min-width: 40em) and (max-width: 50em) {
+  .footer {
+		padding: 0;
+		height: 100%;
+		margin-top: 40px;
+	}
+	.urls-container {
+		/* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: center;
+	}
+	.urls {
+		margin: 30px;
 	}
 	.brand-name {
 		text-align: center;

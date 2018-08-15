@@ -3,16 +3,30 @@
         <input  @keyup.enter="search" v-model="searchKey" type="text" class="input" placeholder="Type to search ...">
 				<div class="blogs-container">
 					<div class="blog-panel" v-for="(post, index) in posts.results" :key="post.id">
-						<nuxt-link :to="`/blog/${post.id}`"><div class="blog-image" :style="{ 'background-image': 'linear-gradient(to bottom,rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%),url(' + post.image + ')' }">
-                <h1 class="post-title" :class="{'first-post-title': index === 0}">{{post.title}}</h1>
-                <p class="post-description">{{post.published_date | formatDate }}</p>
-            </div>
+						<nuxt-link :to="`/blog/${post.id}`">
+              <div class="blog-image" :style="{ 'background-image': 'linear-gradient(to bottom,rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%),url(' + post.image + ')' }">
+                  <h1 class="post-title" :class="{'first-post-title': index === 0}">{{post.title}}</h1>
+                  <p class="post-description">{{post.published_date | formatDate }}</p>
+              </div>
 						</nuxt-link>
             
 						<div class="blog-description">{{post.body}}</div>
 						<nuxt-link :to="`/blog/${post.id}`"><p class="read-more">read more</p></nuxt-link>
 					</div>
 				</div>
+        <!-- <paginate
+          :page-count="posts.count"
+          :page-range="3"
+          :margin-pages="2"
+          :click-handler="clickCallback"
+          :prev-text="'Prev'"
+          :next-text="'Next'"
+          :container-class="'pagination'"
+          :page-class="'page-item'"
+          :prev-class="'page-prev'"
+          :next-class="'page-next'"
+          >
+        </paginate> -->
     </div>
 </template>
 <script>
@@ -42,7 +56,7 @@ export default {
   },
   methods: {
     search() {
-      this.$store.dispatch("searchPosts", { q: this.searchKey });
+      this.$store.dispatch("searchPosts", { search: this.searchKey });
     }
   }
 };
@@ -52,7 +66,7 @@ export default {
   width: 100%;
   height: 50px;
   border: 1px solid #f8f8f8;
-  border-radius: 7px;
+  border-radius: 10px;
   padding: 16px 25px;
   outline: none;
 }
@@ -137,5 +151,25 @@ p {
     line-height: 20px;
     max-height: 80px;
   }
+}
+@media (min-width: 40em) and (max-width: 50em) {
+  .blogs-container {
+    justify-content: center;
+  }
+  .blog-panel {
+    margin-top: 30px !important;
+    margin-left: 0;
+    width: 100%;
+  }
+  .first-post-title {
+    font-size: 20px;
+    line-height: 20px;
+    max-height: 80px;
+  }
+  .blog-panel:first-child {
+  margin-left: 0;
+  width: 100%;
+  margin-top: 0;
+}
 }
 </style>

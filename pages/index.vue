@@ -12,7 +12,7 @@
       <div class="services">
         <h1>Услуги</h1>
         <div class="service-types">
-        <div v-swiper:mySwiper="swiperOption" class="web-hide">
+        <div v-swiper:mySwiper="swiperOption" class="web-hide tablet-hide">
           <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="(service, index) in services" :key="service.id">
               <div class="s-item">
@@ -443,7 +443,7 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10% 5% 10% 0;
+    padding: 10% 0 10% 0;
   }
   .service {
     padding: 5%;
@@ -453,6 +453,100 @@ p {
     border-radius: 10px;
     transition: 0.3s all ease-in-out;
     height: 412px;
+  }
+  .service:first-child {
+    margin-left: 0;
+  }
+  .service-logo {
+    width: 77px;
+    height: 77px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo-orange {
+    background-color: #ef741c;
+  }
+
+  .service-description {
+    line-height: 25px;
+  }
+}
+@media (min-width: 40em) and (max-width: 50em) {
+.swiper-wrapper {
+    display: flex;
+  }
+  .swiper-pagination {
+    position: relative;
+    display: inherit;
+  }
+  .s-container {
+    display: flex;
+  }
+  .s-item {
+    width: 100%;
+    max-width: 280px;
+    min-width: 280px;
+    height: 300px;
+    margin: 5px;
+    background-color: #ef741c;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
+
+  }
+  .service-container {
+    display: flex;
+    width: 100% !important;
+    min-width: 280px;
+    margin-bottom: 10px;
+  }
+  .about {
+    padding: 10% 5%;
+  }
+  .services {
+    padding: 10% 5%;
+  }
+  .bigger-better {
+    padding: 10% 5%;
+  }
+  .bb-container {
+    flex-wrap: wrap;
+  }
+  .bb-item {
+    margin-left: 0;
+  }
+  .partners-block {
+    padding: 10% 5%;
+    flex-wrap: wrap;
+  }
+  .reasons-container {
+    width: 100%;
+  }
+  .offset-20 {
+    width: 0;
+  }
+  .partners-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    padding-top: 10%;
+  }
+  .service {
+    padding: 5%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    width: 60% !important;
+    margin: 10px;
+    border-radius: 10px;
+    transition: 0.3s all ease-in-out;
+    height: 412px;
+  }
+  .service-name {
+    width: 100%;
   }
   .service:first-child {
     margin-left: 0;

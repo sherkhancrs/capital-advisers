@@ -45,7 +45,6 @@ export default {
   methods: {
     toggleMenu() {
       this.menuShow = !this.menuShow;
-      console.log(this.menuShow);
     }
   }
 };
@@ -115,7 +114,39 @@ h1 {
     padding: 0;
   }
   .hero-content {
-    padding: 50px 5%;
+    padding: 100px 5%;
+  }
+  .hero-description {
+    width: 100%;
+  }
+  .header-menu-item {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+  }
+  h1 {
+    font-size: 30px;
+    margin: 0;
+    line-height: 38px;
+  }
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .open-account {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .menu-bar {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+@media (min-width: 40em) and (max-width: 50em) {
+  .header-container {
+    padding: 0;
+  }
+  .hero-content {
+    padding: 100px 5%;
   }
   .hero-description {
     width: 100%;

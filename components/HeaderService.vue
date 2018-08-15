@@ -53,7 +53,6 @@ export default {
     },
     toggleMenu() {
       this.menuShow = !this.menuShow;
-      console.log(this.menuShow);
     }
   }
 };
@@ -141,6 +140,27 @@ h1 {
 	width: 40%;
 }
 @media (max-width: 40em) {
+  .header-container {
+    padding: 0;
+  }
+  .hero-content {
+    padding: 50px 5%;
+    
+  }
+  .header-menu-item {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+  }
+  .slug-header-container{
+    width: 100%;
+    overflow-wrap: break-word;
+  }
+  .slug-header {
+    font-size: 42px;
+  }
+}
+@media (min-width: 40em) and (max-width: 50em) {
   .header-container {
     padding: 0;
   }

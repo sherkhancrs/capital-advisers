@@ -40,7 +40,6 @@ export default {
   methods: {
     toggleMenu() {
       this.menuShow = !this.menuShow;
-      console.log(this.menuShow);
     }
   }
 };
@@ -111,7 +110,23 @@ h1 {
     padding: 0;
   }
   .hero-content {
-    padding: 50px 5%;
+    padding: 100px 5%;
+  }
+  .header-menu-item {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+  }
+  .page-description {
+    width: 100%;
+  }
+}
+@media (min-width: 40em) and (max-width: 50em) {
+  .header-container {
+    padding: 0;
+  }
+  .hero-content {
+    padding: 100px 5%;
   }
   .header-menu-item {
     margin: 0;
