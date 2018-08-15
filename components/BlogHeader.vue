@@ -15,7 +15,7 @@
       </div>
       
       <div class="menus" v-show="menuShow">
-        <nuxt-link @click="toggleMenu" class="header-menu-item" v-for="item in menu" :key="item.id" :to="item.url">
+        <nuxt-link @click.native="toggleMenu" class="header-menu-item" v-for="item in menu" :key="item.id" :to="item.url">
             {{item.name}}
         </nuxt-link>
       </div>
