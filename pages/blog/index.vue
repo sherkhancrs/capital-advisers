@@ -153,6 +153,7 @@ p {
   .blog-panel {
     margin-top: 30px !important;
     margin-left: 0;
+    width: 100%;
   }
   .first-post-title {
     font-size: 20px;
