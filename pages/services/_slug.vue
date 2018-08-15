@@ -20,7 +20,7 @@
 </template>
 <script>
 export default {
-	layout: "service",
+  layout: "service",
   computed: {
     name() {
       return this.$route.params.slug;
@@ -51,12 +51,12 @@ export default {
   margin-left: 4%;
 }
 .content {
-	margin-top: 81px;
-	padding-bottom: 95px;
+  margin-top: 81px;
+  padding-bottom: 95px;
 }
 ul {
-	list-style: none;
-	padding-left: 40px;
+  list-style: none;
+  padding-left: 40px;
 }
 li::before {
   content: "•";
@@ -66,14 +66,36 @@ li::before {
   margin-left: -2em;
 }
 li {
-	margin-top: 20px;
-	line-height: 20px;
-	font-size: 20px;
+  margin-top: 20px;
+  line-height: 20px;
+  font-size: 20px;
 }
 h2 {
-	font-size: 36px;
-	width: 50%;
-	text-align: justify;
+  font-size: 36px;
+  width: 50%;
+  text-align: justify;
+}
+
+@media (max-width: 40em) {
+  .intro-panel {
+    flex-direction: column-reverse;
+    padding-top: 50px;
+  }
+  .intro-panel-col {
+    width: 100%;
+  }
+  .panel-image {
+    margin-left: 0;
+  }
+  .intro-panel-text {
+    margin-top: 20px;
+  }
+  h2 {
+    width: 100%;
+  }
+  .content {
+    margin-top: 50px;
+  }
 }
 </style>
 

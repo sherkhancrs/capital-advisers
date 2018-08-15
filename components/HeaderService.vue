@@ -148,7 +148,7 @@ h1 {
     padding: 0;
   }
   .hero-content {
-    padding: 50px 5%;
+    padding: 100px 5%;
     
   }
   .header-menu-item {
@@ -161,7 +161,7 @@ h1 {
     overflow-wrap: break-word;
   }
   .slug-header {
-    font-size: 42px;
+    font-size: 36px;
   }
 }
 @media (min-width: 40em) and (max-width: 50em) {
@@ -169,7 +169,7 @@ h1 {
     padding: 0;
   }
   .hero-content {
-    padding: 50px 5%;
+    padding: 100px 5% 50px;
     
   }
   .header-menu-item {
