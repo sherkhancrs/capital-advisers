@@ -92,6 +92,7 @@ h2 {
   }
   h2 {
     width: 100%;
+    font-size: 1.6em;
   }
   .content {
     margin-top: 50px;
