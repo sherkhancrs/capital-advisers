@@ -25,7 +25,7 @@
           :page-link-class="'page-item'"
           :prev-link-class="'page-prev'"
           :next-link-class="'page-next'"
-          :hide-prev-next="true"
+          :hide-prev-next="false"
           >
         </paginate>
     </div>

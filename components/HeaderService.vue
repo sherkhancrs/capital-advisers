@@ -1,4 +1,6 @@
 <template>
+  <div>
+    <div class="back-image"></div>
     <div class="hero">
       <div class="header-container" :class="{dark: menuShow}">
         <div class="logo"></div>
@@ -27,7 +29,7 @@
 				</div>
       </div>
     </div>
-    
+  </div>
 </template>
 <script>
 export default {
@@ -62,6 +64,22 @@ export default {
 };
 </script>
 <style scoped>
+.back-image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  display: block;
+  background-image: url('http://www.legalexecutiveinstitute.com/wp-content/uploads/2016/04/blockchain.jpg');
+  height: 440px;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
 .header-container {
   padding: 20px 200px;
   background: rgba(0, 0, 0, 0.1);
@@ -90,13 +108,17 @@ export default {
 }
 .hero-content {
   background: transparent;
-  padding: 70px 200px 60px;
+  padding: 70px 200px 0;
+  height: 351px;
 }
 .hero {
+  position: absolute;
+  z-index: 9999;
 	background: rgba(0, 0, 0, 0.4);
   background-size: 100% 100%;
 	color: #ffffff;
-	backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  width: 100%;
 }
 /* @supports (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px)) {
   .hero {
@@ -163,6 +185,9 @@ h1 {
   .slug-header {
     font-size: 36px;
   }
+  .back-image {
+    height: 350px;
+  }
 }
 @media (min-width: 40em) and (max-width: 50em) {
   .header-container {
@@ -183,6 +208,9 @@ h1 {
   }
   .slug-header {
     font-size: 42px;
+  }
+  .back-image {
+    height: 349px;
   }
 }
 </style>

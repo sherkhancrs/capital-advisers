@@ -51,7 +51,7 @@ export default {
   margin-left: 4%;
 }
 .content {
-  margin-top: 81px;
+  margin-top: 181px;
   padding-bottom: 95px;
 }
 ul {

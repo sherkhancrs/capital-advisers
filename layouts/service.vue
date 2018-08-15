@@ -27,12 +27,12 @@ export default {
 }
 @media (max-width: 40em) {
 	.layout {
-    padding: 0 5%;
+    padding: 370px 5% 0;
   }
 }
 @media (min-width: 40em) and (max-width: 50em) {
   .layout {
-    padding: 0 5%;
+    padding: 351px 5% 0;
   }
 }
 </style>
