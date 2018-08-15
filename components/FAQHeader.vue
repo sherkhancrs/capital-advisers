@@ -1,13 +1,17 @@
 <template>
     <div class="hero">
-      <div class="header-container">
+      <div class="header-container" :class="{dark: menuShow}">
         <div class="logo"></div>
         <div class="header-menu">
           <nuxt-link class="header-menu-item" v-for="item in menu" :key="item.id" :to="item.url">
             {{item.name}}
           </nuxt-link>
         </div>
-        <div class="menu-bar web-hide" @click="toggleMenu"></div>
+        <div class="menu-bar web-hide" @click="toggleMenu">
+          <div class="menu-icon"></div>
+          <div class="menu-icon"></div>
+          <div class="menu-icon"></div>
+        </div>
       </div>
       
       <div class="menus" v-show="menuShow">

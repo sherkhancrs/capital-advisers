@@ -1,20 +1,35 @@
 <template>
     <div class="form-container">
         <div class="image"></div>
-        <div class="form">
+        <div class="form" @submit.prevent="submit">
             <p class="label">Ваш email</p>
-            <input class="input" placeholder="alisher@foxout.kz">
+            <input class="input"  v-model="email" placeholder="alisher@foxout.kz" required>
             <p class="label">Ваше имя</p>
-            <input class="input" placeholder="Алишер Толебердыев">
+            <input class="input" v-model="name" placeholder="Алишер Толебердыев">
             <p class="label">Ваше сообщение</p>
-            <textarea></textarea>
-            <div class="btn-container"><button class="button-reverse">Send</button></div>
+            <textarea v-model="text" required></textarea>
+            <div class="btn-container"><button type="submit" @click="submit" class="button-reverse">Send</button></div>
         </div>
     </div>
 </template>
 <script>
 export default {
-  layout: "contact"
+  layout: "contact",
+  data() {
+    return {
+      email: "",
+      name: "",
+      text: ""
+    };
+  },
+  methods: {
+    submit() {
+      this.$store.dispatch("mailUs", {email: this.email, body: this.text});
+      this.email = "";
+      this.name = "";
+      this.text = "";
+    }
+  }
 };
 </script>
 <style scoped>

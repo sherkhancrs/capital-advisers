@@ -7,7 +7,12 @@
             {{item.name}}
           </nuxt-link>
         </div>
-        <div class="menu-bar web-hide" @click="toggleMenu"></div>
+        
+        <div class="menu-bar web-hide" @click="toggleMenu">
+          <div class="menu-icon"></div>
+          <div class="menu-icon"></div>
+          <div class="menu-icon"></div>
+        </div>
       </div>
       
       <div class="menus" v-show="menuShow">
@@ -75,7 +80,10 @@ export default {
   border: 1px solid transparent;
   font-family: "SFUI-Bold","Lato-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   text-decoration: none;
-  color: #000000;
+  color: black !important;
+}
+.menus {
+  background-color: #f9f9f9;
 }
 .header-menu-item:hover {
   border: 1px solid #000000;
@@ -138,6 +146,9 @@ h1 {
     line-height: 22px;
     font-size: 20px;
 }
+.menu-icon {
+  background-color: black;
+}
 @media (max-width: 40em) {
   .header-container {
     padding: 0;
@@ -149,6 +160,7 @@ h1 {
     margin: 0;
     padding: 0;
     font-size: 13px;
+    background-color: rgba(0, 0, 0, 0.1) !important;
   }
   .slug-header-container{
     width: 100%;
@@ -157,7 +169,6 @@ h1 {
   .menu-bar {
     width: 50px;
     height: 50px;
-    background-color: rgba(0, 0, 0, 0.1);
   }
 }
 @media (min-width: 40em) and (max-width: 50em) {
@@ -171,6 +182,7 @@ h1 {
     margin: 0;
     padding: 0;
     font-size: 13px;
+    background-color: rgba(0, 0, 0, 0.1) !important;
   }
   .slug-header-container{
     width: 100%;
@@ -179,7 +191,6 @@ h1 {
   .menu-bar {
     width: 50px;
     height: 50px;
-    background-color: rgba(0, 0, 0, 0.1);
   }
 }
 </style>

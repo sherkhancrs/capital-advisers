@@ -14,19 +14,20 @@
 						<nuxt-link :to="`/blog/${post.id}`"><p class="read-more">read more</p></nuxt-link>
 					</div>
 				</div>
-        <!-- <paginate
-          :page-count="posts.count"
+        <paginate 
+          :page-count="parseInt(Math.ceil(posts.count/20))"
           :page-range="3"
           :margin-pages="2"
           :click-handler="clickCallback"
           :prev-text="'Prev'"
           :next-text="'Next'"
           :container-class="'pagination'"
-          :page-class="'page-item'"
-          :prev-class="'page-prev'"
-          :next-class="'page-next'"
+          :page-link-class="'page-item'"
+          :prev-link-class="'page-prev'"
+          :next-link-class="'page-next'"
+          :hide-prev-next="true"
           >
-        </paginate> -->
+        </paginate>
     </div>
 </template>
 <script>
@@ -57,11 +58,18 @@ export default {
   methods: {
     search() {
       this.$store.dispatch("searchPosts", { search: this.searchKey });
+    },
+    clickCallback(pageNum) {
+      console.log(pageNum);
+      this.$store.dispatch("loadPostsPage", (pageNum - 1) * 20);
     }
   }
 };
 </script>
 <style scoped>
+button {
+  background-color: white !important;
+}
 .input {
   width: 100%;
   height: 50px;
@@ -167,9 +175,9 @@ p {
     max-height: 80px;
   }
   .blog-panel:first-child {
-  margin-left: 0;
-  width: 100%;
-  margin-top: 0;
-}
+    margin-left: 0;
+    width: 100%;
+    margin-top: 0;
+  }
 }
 </style>

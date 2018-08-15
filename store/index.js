@@ -71,6 +71,20 @@ export const actions = {
 				return commit("SET_POSTS", []);
 			});
 	},
+	loadPostsPage({
+		commit
+	}, pages) {
+		return backend
+			.get(`/blog/posts/?limit=20&offset=${pages}`)
+			.then(response => {
+				const data = response.data;
+				return commit("SET_POSTS", data);
+			})
+			.catch(error => {
+				console.log(error)
+				return commit("SET_POSTS", []);
+			});
+	},
 	loadFAQS({
 		commit
 	}) {
@@ -99,6 +113,19 @@ export const actions = {
 			.catch(error => {
 				console.log(error)
 				return commit("SET_POSTS", []);
+			});
+	},
+	mailUs({
+		commit
+	}, mail) {
+		return backend
+			.post("/mail/send-mail/", mail)
+			.then(response => {
+				const data = response.data;
+				console.log(data);
+			})
+			.catch(error => {
+				console.log(error)
 			});
 	},
 

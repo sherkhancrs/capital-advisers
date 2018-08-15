@@ -7,7 +7,11 @@
             {{item.name}}
           </nuxt-link>
         </div>
-        <div class="menu-bar web-hide" @click="toggleMenu"></div>
+        <div class="menu-bar web-hide" @click="toggleMenu">
+          <div class="menu-icon"></div>
+          <div class="menu-icon"></div>
+          <div class="menu-icon"></div>
+        </div>
       </div>
       
       <div class="menus" v-show="menuShow">
