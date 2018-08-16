@@ -12,25 +12,6 @@
       <div class="services">
         <h1>Услуги</h1>
         <div class="service-types">
-        <div v-swiper:mySwiper="swiperOption" class="web-hide tablet-hide">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="(service, index) in services" :key="service.id">
-              <div class="s-item">
-                <nuxt-link :to="service.url">
-                <div class="service-logo">
-                  <img  width="33px" height="33px" :src="getImgUrl(service.logo, index)" alt="">
-                </div>
-                </nuxt-link>
-                <nuxt-link :to="service.url"><h3 class="service-name">{{service.name}}</h3></nuxt-link>
-                <p class="service-name">{{service.description}}</p>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-
-
           <div class="service mobile-hide" v-for="(service, index) in services" :key="service.id"  @mouseout="hoveroutService(index)" @mouseover="hoverService(index)">
             <nuxt-link :to="service.url"><div class="service-logo" :class="[service.hover === true ? 'logo-orange' : '']">
               <img  width="33px" height="33px" :src="getImgUrl(service.logo, index)" :alt="service.logo">
@@ -90,12 +71,6 @@ export default {
   },
   data() {
     return {
-      swiperOption: {
-        pagination: {
-          el: ".swiper-pagination"
-        },
-        loop: true
-      },
       ready: false,
       startVal: 0,
       decimals: 0,
@@ -379,13 +354,6 @@ p {
   margin-left: -5px;
 }
 @media (max-width: 40em) {
-  .swiper-wrapper {
-    display: flex;
-  }
-  .swiper-pagination {
-    position: relative;
-    display: inherit;
-  }
   .s-container {
     display: flex;
   }
@@ -474,13 +442,6 @@ p {
   }
 }
 @media (min-width: 40em) and (max-width: 50em) {
-.swiper-wrapper {
-    display: flex;
-  }
-  .swiper-pagination {
-    position: relative;
-    display: inherit;
-  }
   .s-container {
     display: flex;
   }

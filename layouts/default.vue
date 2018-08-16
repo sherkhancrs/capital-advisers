@@ -1,9 +1,7 @@
 <template>
-  <div class="container">
+  <div>
     <f-navbar></f-navbar>
-    <div class="layout">
       <nuxt/>
-    </div>
     <f-footer></f-footer>
   </div>
 </template>
@@ -18,21 +16,3 @@ export default {
   }
 };
 </script>
-<style>
-.container {
-  min-height: 100vh;
-}
-.layout {
-  padding: 0 200px;
-}
-@media (max-width: 40em) {
-	.layout {
-    padding: 0 5%;
-  }
-}
-@media (min-width: 40em) and (max-width: 50em) {
-  .layout {
-    padding: 0 5%;
-  }
-}
-</style>

@@ -1,5 +1,6 @@
 <template>
     <div class="footer">
+      <div class="container">
 			<div class="urls-container">
 				<div class="urls" v-if="urls" v-for="item in urls" :key="item.key">
 					<div class="url-header" v-if="item">{{item.name}}</div>
@@ -10,6 +11,7 @@
 			</div>
 			<div class="hr"></div>	
 			<p class="brand-name">CapitalAdvisors.kz © 2018</p>
+      </div>
 		</div>
 </template>
 <script>
@@ -57,8 +59,7 @@ export default {
 <style scoped>
 .footer {
   background-color: #595959;
-  height: 327px;
-  padding: 48px 200px 62px;
+  padding: 48px 0;
 }
 .urls-container {
   display: flex;
@@ -98,14 +99,10 @@ export default {
 .brand-name {
 	font-size: 14px;
 	color: #ffffff;
-	margin-top: 20px;
+  margin-top: 20px;
+  margin-bottom: 0;
 }
 @media (max-width: 40em) {
-  .footer {
-		padding: 0;
-		height: 100%;
-		margin-top: 40px;
-	}
 	.urls-container {
 		flex-direction: column;
 		align-items: center;
@@ -119,11 +116,6 @@ export default {
 	}
 }
 @media (min-width: 40em) and (max-width: 50em) {
-  .footer {
-		padding: 0;
-		height: 100%;
-		margin-top: 40px;
-	}
 	.urls-container {
 		/* flex-direction: column; */
     flex-wrap: wrap;
