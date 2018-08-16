@@ -86,7 +86,7 @@ a {
 	flex-direction: column;
 	position: fixed;
   /* background-color: #f9f9f9; */
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
 	width: 100%;
 	margin-top: 50px;
 	z-index: 9;
@@ -100,7 +100,7 @@ a {
 }
 
 .dark {
-  background-color: rgba(0, 0, 0, 0.7) !important;
+  background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
 .input:focus {
@@ -170,11 +170,15 @@ textarea:focus {
 }
 
 .menu-icon {
-	width: 35px;
-	height: 4px;
+	width: 25px;
+	height: 2px;
 	background-color: #ffffff;
-  margin: 6px 0;
+  margin: 4px 0;
   z-index: 10;
+}
+
+.logo {
+  background: rgba(0, 0, 0, 0.3) !important;
 }
 
 @media (max-width: 40em) {
@@ -202,7 +206,8 @@ textarea:focus {
     float: right;
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+		align-items: center !important;
+		justify-content: center;
 	}
 	.slug-header-container {
 		margin-top: 50px;
