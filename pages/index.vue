@@ -348,7 +348,7 @@ export default {
     sans-serif;
 }
 .reason-description {
-  color: #cecece;
+  color: black;
   margin-left: 26px;
   line-height: 20px;
   font-family: "SFUI-Light";
