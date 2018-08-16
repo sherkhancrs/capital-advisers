@@ -30,6 +30,12 @@
 	font-display: optional;
 }
 
+.thined{font-family: "SFUI-Light" , sans-serif;}
+.bolded{font-family: "SFUI-Bold" , sans-serif;}
+.semi-bold{font-family: "SFUI-Semibold" , sans-serif;}
+.regular{font-family: "SFUI" , sans-serif;}
+
+
 .layout-wrapper {
 	margin: 0;
 }
