@@ -121,10 +121,12 @@ export const actions = {
 		return backend
 			.post("/mail/send-mail/", mail)
 			.then(response => {
+				this.$toast.success("Успешно отправлено");
 				const data = response.data;
 				console.log(data);
 			})
 			.catch(error => {
+				this.$toast.error("Возникла ошибка");
 				console.log(error)
 			});
 	},
