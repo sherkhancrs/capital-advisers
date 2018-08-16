@@ -35,7 +35,6 @@ import format from "date-fns/format";
 import ruLocale from "date-fns/locale/ru";
 
 export default {
-  layout: "blog",
   data() {
     return {
       searchKey: ""

@@ -20,7 +20,6 @@
 </template>
 <script>
 export default {
-  layout: "service",
   computed: {
     name() {
       return this.$route.params.slug;

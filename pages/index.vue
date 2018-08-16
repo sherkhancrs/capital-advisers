@@ -85,7 +85,6 @@
 import countTo from "vue-count-to";
 
 export default {
-  layout: "landing",
   components: {
     countTo
   },

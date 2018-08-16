@@ -14,7 +14,6 @@
 </template>
 <script>
 export default {
-  layout: "contact",
   data() {
     return {
       email: "",

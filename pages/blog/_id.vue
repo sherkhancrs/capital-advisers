@@ -5,7 +5,6 @@
 </template>
 <script>
 export default {
-  layout: "blogdetail",
   beforeMount() {
     this.$store.dispatch("loadPostDetail", this.$route.params.id);
   },
