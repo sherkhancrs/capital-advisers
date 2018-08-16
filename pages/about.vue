@@ -57,9 +57,6 @@ p {
   .member:first-child {
     margin-top: 40px;
   }
-  .team-container {
-    justify-content: center;
-  }
 }
 @media (min-width: 40em) and (max-width: 50em) {
   .member {
