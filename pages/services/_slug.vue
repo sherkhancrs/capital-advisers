@@ -1,17 +1,20 @@
 <template>
   <div>
+    <div class="back-image"></div>
     <div class="main-h">
       <div class="container">
         <div class="row middle-xs">
           <div class="col-xs-12">
-            <p>Service Icon</p>
-            <h1 class="bolded d-none d-block-md" >Service Name</h1>
-            <h3 class="bolded d-block d-none-md" >Service Name</h3>
+            <img  width="58px" height="56px" :src="getImgUrl('consultation')" alt="">
+            <div class="line"></div>
+            <div class="slug-header-container">
+              <h1 class="slug-header" >{{title}}</h1>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container c">
       <div class="row">
         <div class="col-md-6 col-sm-12 col-xs-12 ">
           <p class="intro-panel-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset</p>
@@ -56,12 +59,22 @@ export default {
   computed: {
     name() {
       return this.$route.params.slug;
+    },
+    title() {
+			if (this.$route.params.slug === "commerce") {
+				return "Торговые Рекомендации";
+			} else return "Инвистиционный Консалтинг";
+		}
+  },
+	methods: {
+    getImgUrl(name) {
+      return require(`~/assets/icons/${name}-white.png`);
     }
   }
-};
+}
 </script>
 <style scoped>
-.container {
+.c {
   margin-top: 70px;
   margin-bottom: 70px;
 }
@@ -109,14 +122,25 @@ h2 {
   margin: 0;
 }
 .main-h {
-  background-color:rgba(0, 0, 0, .7);
-  /* background-repeat: no-repeat; */
-  background-position-x: center;
-  background-size: contain;
   padding-top: 170px;
   padding-bottom: 100px;
   height: 100%;
   color: white;
+}
+.back-image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -2;
+   display: block;
+  background-image: url('http://www.legalexecutiveinstitute.com/wp-content/uploads/2016/04/blockchain.jpg');
+  height: 100%;
+   -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  height: 407px;
 }
 @media (max-width: 40em) {
   .main-h {
@@ -141,6 +165,9 @@ h2 {
   .intro-header {
     margin-top: 15px;
   }
+  .back-image {
+    height: 300px;
+  }
 }
 @media (min-width: 40em) and (max-width: 50em) {
   .main-h {
@@ -164,6 +191,9 @@ h2 {
   }
   .intro-header {
     margin-top: 15px;
+  }
+  .back-image {
+    height: 365px;
   }
 }
 </style>
