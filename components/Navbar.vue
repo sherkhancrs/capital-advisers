@@ -64,6 +64,7 @@ export default {
   background: rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
+  z-index: 100;
 }
 .logo {
   width: 175px;

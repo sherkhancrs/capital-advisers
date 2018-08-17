@@ -1,7 +1,24 @@
 <template>
-    <div class="form-container">
-        <div class="image"></div>
-        <div class="form" @submit.prevent="submit">
+  <div>
+    <div class="main-h">
+      <div class="container">
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            <h1 class="bolded d-none d-block-md" >Contact Us</h1>
+            <h3 class="bolded d-block d-none-md" >Contact Us</h3>
+            <h4 class="thined">
+              We would be delighted to answer any inquiry you might have about your financial affairs, just use the form below or choose one of the alternative methods of communication. We’re available from Monday to Friday, 07:30-19:00 to take your call.
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container c">
+      <div class="row">
+        <div class="col-md-6 d-block-md d-none-xs d-none-sm">
+          <div class="image"></div>
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-12 form" @submit.prevent="submit">
             <p class="label">Ваш email</p>
             <input class="input"  v-model="email" placeholder="alisher@foxout.kz" required>
             <p class="label">Ваше имя</p>
@@ -10,7 +27,9 @@
             <textarea v-model="text" required></textarea>
             <div class="btn-container"><button type="submit" @click="submit" class="button-reverse">Send</button></div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 export default {
@@ -32,23 +51,29 @@ export default {
 };
 </script>
 <style scoped>
-.form-container {
-  height: 512px;
-  margin: 48px 0 149px;
+.main-h {
+  background-color: #595959;
+  color: white;
+  padding-top: 140px;
+  padding-bottom: 100px;
+}
+
+.c {
+  /* height: 512px; */
+  margin-top: 70px;
+  margin-bottom: 100px;
+  /* margin: 48px 0 149px; */
   /* padding:  */
-  display: flex;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
 }
 .image {
-  width: 50%;
   height: 100%;
   background-color: rgba(19, 48, 79, 0.9);
   border-radius: 10px;
 }
 .form {
-  width: 50%;
   height: 100%;
-  padding: 26px 43px 28px;
+  padding: 26px 43px 20px;
 }
 .input {
   border: 1px solid #f3f3f3;
@@ -79,28 +104,18 @@ textarea {
   margin-top: 15px;
 }
 @media (max-width: 40em) {
-  .form-container {
-    flex-direction: column;
+  .container {
     margin-bottom: 40px;
   }
-  .form {
-    width: 100%;
-  }
   .image {
-    width: 100%;
     height: 300px;
   }
 }
 @media (min-width: 40em) and (max-width: 50em) {
-  .form-container {
-    flex-direction: column;
+  .container {
     margin-bottom: 40px;
   }
-  .form {
-    width: 100%;
-  }
   .image {
-    width: 100%;
     height: 300px;
   }
 }

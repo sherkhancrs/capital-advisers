@@ -1,14 +1,18 @@
 <template>
     <div class="footer">
       <div class="container">
-			<div class="urls-container">
-				<div class="urls" v-if="urls" v-for="item in urls" :key="item.key">
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-xs-12" v-for="item in urls" :key="item.key">
+            <div class="urls-container">
+				<div class="urls" v-if="urls" >
 					<div class="url-header" v-if="item">{{item.name}}</div>
 					<div class="links">
 						<nuxt-link :to="`${link.url}`" class="url"  :class="{location:link.name.startsWith('Esentai')}" v-for="link in item.list" :key="link.id">{{link.name}}</nuxt-link>
 					</div>
 				</div>
 			</div>
+          </div>
+        </div>
 			<div class="hr"></div>	
 			<p class="brand-name">CapitalAdvisors.kz © 2018</p>
       </div>
@@ -109,7 +113,7 @@ export default {
 	}
 	.urls {
     margin-top: 30px;
-    width: 90%;
+    width: 95%;
 	}
 	.brand-name {
 		text-align: center;
@@ -119,7 +123,6 @@ export default {
 	.urls-container {
 		/* flex-direction: column; */
     flex-wrap: wrap;
-    justify-content: center;
 	}
 	.urls {
 		margin: 30px;

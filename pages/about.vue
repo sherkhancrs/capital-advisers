@@ -1,35 +1,53 @@
 <template>
-    <div class="about-layout">
-        <h1>Our team</h1>
-        <div class="team-container">
-            <div class="member" v-for="member in 4" :key="member.id">
-							<div class="member-photo"></div>
-							<p class="name">Marc Zuckerberg</p>
-							<p class="job">Founder & CEO</p>
-						</div>
+<div>
+<div class="main-header">
+      <div class="container">
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            <h1 class="bolded d-none d-block-md" >О нас</h1>
+            <h3 class="bolded d-block d-none-md" >О нас</h3>
+            <h4 class="thined">
+              Мы признаем, что выбор «правильного» партнера по управлению капиталом — это очень индивидуальное решение, которое может предоставить вам и вашей семье финансовый мир и безопасность. Не существует компании, которая идеально подходит для всех, поэтому мы в DN | Capital Advisors предлагаем Вам самим выбрать финансового советника из нашего основного капитала — опытных и квалифицированных специалистов. Поскольку выбор «правильного» советника окажет значительное влияние на вас и вашу семью на долгие годы, мы бы хотели обратить внимание на наш основной критерий формирования команды — мы выбираем людей, конгруэтных с ценностями и принципами компании. Мы приветствуем Вас, чтобы понять и принять наш подход.
+            </h4>
+          </div>
         </div>
+      </div>
     </div>
+  <div class="container c">
+    <div class="row">
+      <div class="col-xs">
+        <h1>Наша Команда</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3"  v-for="member in 4" :key="member.id">
+        <div class="member">
+						<div class="member-photo"></div>
+						<p class="name">Marc Zuckerberg</p>
+						<p class="job">Founder & CEO</p>
+					</div>
+      </div>
+    </div>
+  </div>
+</div>
 </template>
 <script>
-export default {
-};
+export default {};
 </script>
 <style scoped>
+.main-header {
+  padding-top: 140px;
+  padding-bottom: 100px;
+  background-color: #f9f9f9;
+}
 h1 {
   font-size: 34px;
 }
-.team-container {
-  display: flex;
-  flex-wrap: wrap;
-}
 .member {
-  margin-left: 78px;
-}
-.member:first-child {
-  margin: 0;
+  margin-bottom: 20px;
 }
 .member-photo {
-  width: 191px;
+  max-width: 191px;
   height: 191px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -40,38 +58,13 @@ p {
   line-height: 19px;
 }
 .name {
-  margin-top: 32px;
+  margin-top: 22px;
 }
 .job {
   color: #ef741c;
 }
-.about-layout {
-  margin: 80px 0 170px;
-}
-@media (max-width: 40em) {
-  .member {
-    margin-top: 30px;
-    margin-left: 0;
-  }
-  .member:first-child {
-    margin-top: 40px;
-  }
-}
-@media (min-width: 40em) and (max-width: 50em) {
-  .member {
-    margin-top: 30px;
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-  .member:first-child {
-    margin: 30px 50px;
-  }
-  .member:nth-child(odd) {
-    /* margin-left: 0;
-    margin-right: 0; */
-  }
-  .team-container {
-    justify-content: center;
-  }
+.c {
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 </style>

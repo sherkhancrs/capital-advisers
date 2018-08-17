@@ -1,7 +1,24 @@
 <template>
-    <div class="blogs-layout">
+<div>
+    <div class="main-h">
+      <div class="container">
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            <h1 class="bolded d-none d-block-md" >Услуги</h1>
+            <h3 class="bolded d-block d-none-md" >Услуги</h3>
+            <h4 class="thined">
+              Мы признаем, что выбор «правильного» партнера по управлению капиталом — это очень индивидуальное решение, которое может предоставить вам и вашей семье финансовый мир и безопасность.
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container c">
+      <div class="row">
         <input  @keyup.enter="search" v-model="searchKey" type="text" class="input" placeholder="Type to search ...">
-				<div class="blogs-container">
+      </div>
+      <div class="row">
+        <div class="blogs-container">
 					<div class="blog-panel" v-for="(post, index) in posts.results" :key="post.id">
 						<nuxt-link :to="`/blog/${post.id}`">
               <div class="blog-image" :style="{ 'background-image': 'linear-gradient(to bottom,rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%),url(' + post.image + ')' }">
@@ -14,6 +31,8 @@
 						<nuxt-link :to="`/blog/${post.id}`"><p class="read-more">read more</p></nuxt-link>
 					</div>
 				</div>
+      </div>
+      <div class="row center-xs">
         <paginate 
           :page-count="parseInt(Math.ceil(posts.count/20))"
           :page-range="3"
@@ -28,7 +47,9 @@
           :hide-prev-next="false"
           >
         </paginate>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 import format from "date-fns/format";
@@ -66,6 +87,16 @@ export default {
 };
 </script>
 <style scoped>
+.c {
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+.main-h {
+  background-color: #ef741c;
+  padding-top: 140px;
+  padding-bottom: 100px;
+  color: white;
+}
 button {
   background-color: white !important;
 }
@@ -76,9 +107,6 @@ button {
   border-radius: 10px;
   padding: 16px 25px;
   outline: none;
-}
-.blogs-layout {
-  margin: 45px 0;
 }
 .blogs-container {
   display: flex;
@@ -152,12 +180,15 @@ p {
   .blog-panel {
     margin-top: 30px !important;
     margin-left: 0;
-    width: 100%;
+    width: 100% !important;
   }
   .first-post-title {
     font-size: 20px;
     line-height: 20px;
     max-height: 80px;
+  }
+  .row {
+    padding: 2.5%;
   }
 }
 @media (min-width: 40em) and (max-width: 50em) {
@@ -178,6 +209,9 @@ p {
     margin-left: 0;
     width: 100%;
     margin-top: 0;
+  }
+  .row {
+    padding: 1%;
   }
 }
 </style>
