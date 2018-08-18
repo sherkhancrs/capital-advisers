@@ -1,16 +1,18 @@
 <template>
   <div>
+    <contact-modal v-show="this.$store.state.showContactModal"></contact-modal>
+    <div :class="{blurred: this.$store.state.showContactModal}">
     <div class="main-header">
       <div class="container">
         <div class="row middle-xs" style="height:100vh;">
           <div class="col-xs-12">
-            <h1 class="bolded d-none d-block-md" >ВАШ ПЕРСОНАЛЬНЫЙ <br>ИНВЕСТИЦИОННЫЙ СОВЕТНИК</h1>
-            <h3 class="bolded d-block d-none-md" >ВАШ ПЕРСОНАЛЬНЫЙ <br>ИНВЕСТИЦИОННЫЙ СОВЕТНИК</h3>
-            <h4 class="thined">
+            <h1 class="bolded d-none d-block-md" style="color: #ffffff">ВАШ ПЕРСОНАЛЬНЫЙ <br>ИНВЕСТИЦИОННЫЙ СОВЕТНИК</h1>
+            <h2 class="bolded d-block d-none-md" style="color: #ffffff">ВАШ ПЕРСОНАЛЬНЫЙ <br>ИНВЕСТИЦИОННЫЙ СОВЕТНИК</h2>
+            <h4 class="thined" style="color: #ffffff">
               Мы даем объективные, беспристрастные советы, <br>
               которые помогают нашим клиентам принимать правильные решения
             </h4>
-            <button class="button-reverse button-transparent">ОКРЫТЬ СЧЕТ</button>
+            <button class="button-reverse button-transparent" @click="showModal">ОКРЫТЬ СЧЕТ</button>
             <br>
           </div>
         </div>
@@ -44,8 +46,9 @@
         </div>
       </div>
     </div>
-    <f-service class="services"></f-service>
-      <div class="bigger-better">
+    <f-service  ref="services" class="services"></f-service>
+    <no-ssr>
+      <div  ref="biggerbetter" class="bigger-better">
         <h1>Больше, лучше</h1>
           <div class="container">
             <div class="row">
@@ -63,6 +66,7 @@
             </div>
           </div>
       </div>
+      </no-ssr>
       <div class="container why">
         <div class="row center-xs">
           <h1>Почему мы?</h1>
@@ -74,16 +78,19 @@
             </div>
         </div>
         </div>
+    </div>
   </div>  
 </template>
 <script>
 import FService from "~/components/Service";
 import countTo from "vue-count-to";
+import ContactModal from "~/components/ContactModal";
 
 export default {
   components: {
     FService,
-    countTo
+    countTo,
+    ContactModal
   },
   data() {
     return {
@@ -125,17 +132,17 @@ export default {
         {
           name: "Коллаборация",
           description:
-            "Praesent eget suscipit enim. Nunc id accumsan tortor, gravida sollicitudin lorem. Cras felis dui, bibendum a leo non, consequat aliquam quam. Fusce vestibulum lorem ex, in rhoncus turpis varius et. Pellentesque auctor, lectus a accumsan feugiat, ipsum lorem volutpat turpis, id pharetra eros purus eget leo."
+            "В DN |Capital Advisors советники и аналитики работают в тесной коллаборации для принятия наиболее эффективных решений по распределению активов клиентов."
         },
         {
           name: "Доверительные отношения",
           description:
-            "Praesent eget suscipit enim. Nunc id accumsan tortor, gravida sollicitudin lorem. Cras felis dui, bibendum a leo non, consequat aliquam quam. Fusce vestibulum lorem ex, in rhoncus turpis varius et. Pellentesque auctor, lectus a accumsan feugiat, ipsum lorem volutpat turpis, id pharetra eros purus eget leo."
+            "Согласно международным требованиям к инвестиционным советникам, мы придерживаемся фидуциарных отношений с нашими клиентами."
         },
         {
           name: "Объективность",
           description:
-            "Praesent eget suscipit enim. Nunc id accumsan tortor, gravida sollicitudin lorem. Cras felis dui, bibendum a leo non, consequat aliquam quam. Fusce vestibulum lorem ex, in rhoncus turpis varius et. Pellentesque auctor, lectus a accumsan feugiat, ipsum lorem volutpat turpis, id pharetra eros purus eget leo."
+            "В DN | Capital Advisors мы гарантируем независимость и даём беспристрастную оценку, благодаря бизнес модели, выстроенной на основе взаимодействия с не одним брокером."
         }
       ]
     };
@@ -158,26 +165,22 @@ export default {
       this.services[index].hover = false;
     },
     handleScroll() {
-      this.scrolled = window.scrollY > 0;
       var bb = document.querySelector(".bigger-better");
       var services = document.querySelector(".services");
-      
-      var c = 0;
       if (window.scrollY + 300 >= bb.offsetTop) {
-        console.log("reached");
         this.$store.commit("INC_COUNTER");
-        if (this.$store.state.counter <= 1) {
-          console.log("conor");
+        if (this.$store.state.counter <= 2) {
           this.start();
         }
       }
     },
     start() {
       for (var x = 0; x < 3; x++) {
-        console.log(x);
-        console.log(this.$refs.counter[x]);
         this.$refs.counter[x].start();
       }
+    },
+    showModal() {
+      this.$store.commit("SET_CONTACT_MODAL", true);
     }
   },
   beforeMount() {

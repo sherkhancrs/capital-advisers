@@ -1,22 +1,20 @@
 <template>
     <div class="footer">
-      <div class="container">
+      <div class="container" :class="{blurred: this.$store.state.showContactModal}">
         <div class="row">
           <div class="col-md-3 col-sm-6 col-xs-12" v-for="item in urls" :key="item.key">
-            <div class="urls-container">
-				<div class="urls" v-if="urls" >
-					<div class="url-header" v-if="item">{{item.name}}</div>
-					<div class="links">
-						<nuxt-link :to="`${link.url}`" class="url"  :class="{location:link.name.startsWith('Esentai')}" v-for="link in item.list" :key="link.id">{{link.name}}</nuxt-link>
-					</div>
-				</div>
-			</div>
+            <div class="urls" v-if="urls" >
+              <div class="url-header" v-if="item">{{item.name}}</div>
+              <div class="links">
+                <nuxt-link :to="`${link.url}`" class="url"  :class="{location:link.name.startsWith('Esentai')}" v-for="link in item.list" :key="link.id">{{link.name}}</nuxt-link>
+              </div>
+            </div>
           </div>
         </div>
 			<div class="hr"></div>	
 			<p class="brand-name">CapitalAdvisors.kz © 2018</p>
       </div>
-		</div>
+    </div>
 </template>
 <script>
 export default {
@@ -65,10 +63,6 @@ export default {
   background-color: #595959;
   padding: 48px 0;
 }
-.urls-container {
-  display: flex;
-  justify-content: space-between;
-}
 .urls {
   width: 237px;
 }
@@ -107,28 +101,23 @@ export default {
   margin-bottom: 0;
 }
 @media (max-width: 40em) {
-	.urls-container {
-		flex-direction: column;
-		align-items: center;
-	}
 	.urls {
     margin-top: 30px;
-    width: 95%;
+    width: 98%;
 	}
 	.brand-name {
 		text-align: center;
 	}
 }
 @media (min-width: 40em) and (max-width: 50em) {
-	.urls-container {
-		/* flex-direction: column; */
-    flex-wrap: wrap;
-	}
 	.urls {
-		margin: 30px;
+    margin: 30px;
 	}
 	.brand-name {
 		text-align: center;
-	}
+  }
+  .container {
+    width: 100%;
+  }
 }
 </style>

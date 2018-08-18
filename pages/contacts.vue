@@ -4,21 +4,20 @@
       <div class="container">
         <div class="row middle-xs">
           <div class="col-xs-12">
-            <h1 class="bolded d-none d-block-md" >Contact Us</h1>
-            <h3 class="bolded d-block d-none-md" >Contact Us</h3>
-            <h4 class="thined">
+            <h1 class="bolded">Contact Us</h1>
+            <h3 class="thined">
               We would be delighted to answer any inquiry you might have about your financial affairs, just use the form below or choose one of the alternative methods of communication. We’re available from Monday to Friday, 07:30-19:00 to take your call.
-            </h4>
+            </h3>
           </div>
         </div>
       </div>
     </div>
     <div class="container c">
-      <div class="row">
-        <div class="col-md-6 d-block-md d-none-xs d-none-sm">
+      <div class="row" style="border-radius: 10px;">
+        <div class="col-md-6 d-block-md d-none-xs d-none-sm" style="margin-right: 0 !important; padding-right:0 !important; padding-left: 0!important; border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
           <div class="image"></div>
         </div>
-        <div class="col-md-6 col-xs-12 col-sm-12 form" @submit.prevent="submit">
+        <div class="col-md-6 col-xs-12 col-sm-12 form" style="" @submit.prevent="submit">
             <p class="label">Ваш email</p>
             <input class="input"  v-model="email" placeholder="alisher@foxout.kz" required>
             <p class="label">Ваше имя</p>
@@ -65,15 +64,19 @@ export default {
   /* margin: 48px 0 149px; */
   /* padding:  */
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
 }
 .image {
   height: 100%;
   background-color: rgba(19, 48, 79, 0.9);
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .form {
   height: 100%;
   padding: 26px 43px 20px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .input {
   border: 1px solid #f3f3f3;
@@ -114,6 +117,7 @@ textarea {
 @media (min-width: 40em) and (max-width: 50em) {
   .container {
     margin-bottom: 40px;
+    padding: 20px;
   }
   .image {
     height: 300px;

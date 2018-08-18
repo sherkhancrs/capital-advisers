@@ -4,11 +4,10 @@
       <div class="container">
         <div class="row middle-xs">
           <div class="col-xs-12">
-            <h1 class="bolded d-none d-block-md" >Услуги</h1>
-            <h3 class="bolded d-block d-none-md" >Услуги</h3>
-            <h4 class="thined">
+            <h1 class="bolded" >Услуги</h1>
+            <h3 class="thined">
               Мы признаем, что выбор «правильного» партнера по управлению капиталом — это очень индивидуальное решение, которое может предоставить вам и вашей семье финансовый мир и безопасность.
-            </h4>
+            </h3>
           </div>
         </div>
       </div>

@@ -63,7 +63,9 @@ export default {
     title() {
 			if (this.$route.params.slug === "commerce") {
 				return "Торговые Рекомендации";
-			} else return "Инвистиционный Консалтинг";
+			} else if (this.$route.params.slug === "commerce2" ){
+        return "Хэдж-Фонд";
+      } else return "Инвистиционный Консалтинг";
 		}
   },
 	methods: {
@@ -142,10 +144,15 @@ h2 {
   filter: blur(5px);
   height: 407px;
 }
+.line {
+  background-color: #ef741c;
+  width: 58px;
+  height: 4px;
+}
 @media (max-width: 40em) {
   .main-h {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   .intro-panel-image {
     margin-left: 0;
@@ -168,6 +175,13 @@ h2 {
   .back-image {
     height: 300px;
   }
+  li::before {
+  content: "•";
+  color: #ef741c;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
 }
 @media (min-width: 40em) and (max-width: 50em) {
   .main-h {
@@ -195,6 +209,13 @@ h2 {
   .back-image {
     height: 365px;
   }
+  li::before {
+  content: "•";
+  color: #ef741c;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
 }
 </style>
 

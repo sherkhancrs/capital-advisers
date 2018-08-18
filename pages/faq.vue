@@ -4,11 +4,10 @@
       <div class="container">
         <div class="row middle-xs">
           <div class="col-xs-12">
-            <h1 class="bolded d-none d-block-md">FAQ</h1>
-            <h3 class="bolded d-block d-none-md">FAQ</h3>
-            <h4 class="thined">
+            <h1 class="bolded">FAQ</h1>
+            <h3 class="thined">
               Frequently Asked Questions
-            </h4>
+            </h3>
           </div>
         </div>
       </div>
@@ -177,9 +176,6 @@ h1 {
   }
 }
 @media (min-width: 40em) and (max-width: 50em) {
-  h1 {
-    font-size: 18px;
-  }
   .number {
     width: 15%;
     font-size: 31px;

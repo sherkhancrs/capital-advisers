@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="header" :class="{dark: menuShow}">
+  <div class="header" :class="{dark: menuShow, blurred: this.$store.state.showContactModal, 'dark-nav': darknav}">
     <div class="container">
       <div class="row middle-xs">
         <div class="col-xs-2">
@@ -39,6 +39,7 @@ export default {
   data() {
     return {
       menuShow: false,
+      darknav: false,
       menu: [
         { name: "Главная", url: "/" },
         { name: "О нас", url: "/about" },
@@ -52,8 +53,20 @@ export default {
   methods: {
     toggleMenu() {
       this.menuShow = !this.menuShow;
-      console.log("toggle");
-    }
+    },
+    handleScroll() {
+      if (window.scrollY >= 60) {
+        this.darknav = true;
+      } else {
+        this.darknav = false;
+      }
+  }
+  },
+  beforeMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>
@@ -64,7 +77,7 @@ export default {
   background: rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 11;
 }
 .logo {
   width: 175px;
@@ -96,6 +109,7 @@ export default {
   width: 100%;
   font-size: 17px !important;
   color: white !important;
+  z-index: 9;
 }
 
 .header-menu {
@@ -121,6 +135,9 @@ export default {
 }
 .dark {
   background-color: rgba(0, 0, 0, 0.9) !important;
+}
+.dark-nav {
+  background-color: rgba(0, 0, 0, 0.7) !important;
 }
 @media (max-width: 40em) {
   .web-hide {
@@ -189,7 +206,6 @@ export default {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding-right: 20px;
   }
   .slug-header-container {
     margin-top: 50px;

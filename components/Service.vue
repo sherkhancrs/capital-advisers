@@ -31,7 +31,7 @@ export default {
           logo: "consultation",
           name: "Инвистиционный консалтинг",
           description:
-            "Nunc mattis erat sed odio faucibus, id semper mi ultrices. Duis volutpat, est vel vehicula varius",
+            "Клиенты DN | Capital Advisors заслуживают всесторонней поддержки на пути достижении своих финансовых целей. Мы предлагаем объективную консультационную оценку и прокладываем тропинку к получению макимально эффективного результата в соответствии с целями, практикуя индивидуальный подход.",
           hover: false
         },
         {
@@ -39,15 +39,15 @@ export default {
           logo: "commerce",
           name: "Торговые Рекомендации",
           description:
-            "Nunc mattis erat sed odio faucibus, id semper mi ultrices. Duis volutpat, est vel vehicula varius",
+            "DN | Capital Advisors помогает клиентам справиться с волатильностью рынка, предоставляя ценные торговые рекомендации для разных сегментов. Наши рекомендации формируются путем идеального сочетания фундаментального и технического анализа, проводимого нашими опытными аналитиками. Мы предоставляем ежемесячные, а также ежеквартальные подписки для наших клиентов в соответствии с их потребностями.",
           hover: false
         },
         {
           url: "services/commerce2",
           logo: "combo-chart",
-          name: "Инвистиционный консалтинг",
+          name: "Хедж-Фонд",
           description:
-            "Nunc mattis erat sed odio faucibus, id semper mi ultrices. Duis volutpat, est vel vehicula varius",
+            "В DN |Capital Advisors мы понимаем стремление клиентов к постоянному росту, и готовы обеспечить еще более высокую доходность с течением времени. Хедж-фонд, как инструмент, помогает диверсифицировать инвестиционные портфели клиентов и эффективно управлять рисками.",
           hover: false
         }
       ]

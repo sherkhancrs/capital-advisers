@@ -5,7 +5,8 @@ export const state = () => ({
 	posts: [],
 	postDetail: {},
 	faqs: [],
-	counter: 0
+	counter: 0,
+	showContactModal: false
 });
 // export const getters = {
 // 	faqs_edit: state => {
@@ -36,6 +37,9 @@ export const mutations = {
 	},
 	INC_COUNTER: (state) => {
 		state.counter = state.counter + 1;
+	},
+	SET_CONTACT_MODAL: (state, modal) => {
+		state.showContactModal = modal;
 	}
 };
 

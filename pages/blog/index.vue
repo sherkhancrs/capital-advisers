@@ -4,11 +4,10 @@
       <div class="container">
         <div class="row middle-xs">
           <div class="col-xs-12">
-            <h1 class="bolded d-none d-block-md" >Услуги</h1>
-            <h3 class="bolded d-block d-none-md" >Услуги</h3>
-            <h4 class="thined">
+            <h1 class="bolded" >Blog/News</h1>
+            <h3 class="thined">
               Мы признаем, что выбор «правильного» партнера по управлению капиталом — это очень индивидуальное решение, которое может предоставить вам и вашей семье финансовый мир и безопасность.
-            </h4>
+            </h3>
           </div>
         </div>
       </div>
@@ -17,11 +16,10 @@
       <div class="row">
         <input  @keyup.enter="search" v-model="searchKey" type="text" class="input" placeholder="Type to search ...">
       </div>
-      <div class="row">
-        <div class="blogs-container">
-					<div class="blog-panel" v-for="(post, index) in posts.results" :key="post.id">
+      <div class="row" style="padding-top: 50px;" v-if="posts.results">
+					<div v-if="posts.results.length > 0" class="blog-panel col-xs-12 col-sm-6 col-md-4" v-for="(post, index) in posts.results" :key="post.id">
 						<nuxt-link :to="`/blog/${post.id}`">
-              <div class="blog-image" :style="{ 'background-image': 'linear-gradient(to bottom,rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%),url(' + post.image + ')' }">
+              <div class="blog-image" :style="{ 'background-image': 'linear-gradient(to bottom,rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%),url(' + post.image + ')', 'background-size': 'cover'}">
                   <h1 class="post-title" :class="{'first-post-title': index === 0}">{{post.title}}</h1>
                   <p class="post-description">{{post.published_date | formatDate }}</p>
               </div>
@@ -30,10 +28,15 @@
 						<div class="blog-description">{{post.body}}</div>
 						<nuxt-link :to="`/blog/${post.id}`"><p class="read-more">read more</p></nuxt-link>
 					</div>
-				</div>
+          <div class="col-xs" style="margin-top: 60px"><h3>Ничего не найдено</h3></div>
+				
+      </div>
+      <div v-else class="row">
+        <div class="col-xs" style="margin-top: 60px"><h3>Ничего не найдено</h3></div>
       </div>
       <div class="row center-xs">
         <paginate 
+          v-if="posts.results"
           :page-count="parseInt(Math.ceil(posts.count/20))"
           :page-range="3"
           :margin-pages="2"
@@ -80,7 +83,6 @@ export default {
       this.$store.dispatch("searchPosts", { search: this.searchKey });
     },
     clickCallback(pageNum) {
-      console.log(pageNum);
       this.$store.dispatch("loadPostsPage", (pageNum - 1) * 20);
     }
   }
@@ -108,26 +110,12 @@ button {
   padding: 16px 25px;
   outline: none;
 }
-.blogs-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 35px;
+.blog-panel{
+  margin-bottom: 30px;
 }
-.blog-panel {
-  width: 311px;
-  margin-left: 45px;
-  margin-top: 80px;
-}
-.blog-panel:first-child {
-  margin-left: 0;
-  width: 668px;
-  margin-top: 0;
-}
-.blog-panel:nth-child(2) {
-  margin-top: 0;
-}
-.blog-panel:nth-of-type(3n + 0) {
-  margin-left: 0;
+.blog-panel:first-child{
+  flex-basis: 66.66% !important;
+  max-width: 66.66% !important;
 }
 .blog-image {
   display: flex;
@@ -172,46 +160,28 @@ p {
   bottom: 0;
   margin-bottom: 15px;
 }
-
 @media (max-width: 40em) {
-  .blogs-container {
-    justify-content: center;
-  }
-  .blog-panel {
-    margin-top: 30px !important;
-    margin-left: 0;
-    width: 100% !important;
+  .blog-panel:first-child {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+    
   }
   .first-post-title {
     font-size: 20px;
     line-height: 20px;
     max-height: 80px;
-  }
-  .row {
-    padding: 2.5%;
   }
 }
 @media (min-width: 40em) and (max-width: 50em) {
-  .blogs-container {
-    justify-content: center;
-  }
-  .blog-panel {
-    margin-top: 30px !important;
-    margin-left: 0;
-    width: 100%;
+  
+  .blog-panel:first-child {
+    flex-basis: 50% !important;
+    max-width: 50% !important;
   }
   .first-post-title {
     font-size: 20px;
     line-height: 20px;
     max-height: 80px;
-  }
-  .blog-panel:first-child {
-    margin-left: 0;
-    width: 100%;
-    margin-top: 0;
-  }
-  .row {
-    padding: 1%;
   }
 }
 </style>
