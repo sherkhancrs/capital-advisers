@@ -4,9 +4,9 @@
         <div class="row center-sm">
             <div class="col-md-6 col-xs-12 col-sm-6 form" @submit.prevent="submit" style="margin-left: 0 !important;">
                 <p class="label">Ваш email</p>
-                <input class="input"  v-model="email" placeholder="alisher@foxout.kz" required>
+                <input class="input"  v-model="email" placeholder="johndoe@gmail.com" required>
                 <p class="label">Ваше имя</p>
-                <input class="input" v-model="name" placeholder="Алишер Толебердыев">
+                <input class="input" v-model="name" placeholder="John Doe">
                 <p class="label">Ваше сообщение</p>
                 <textarea v-model="text" required></textarea>
                 <div class="btn-container"><button type="submit" @click="submit" class="button-reverse">Send</button></div>
