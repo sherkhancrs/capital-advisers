@@ -70,13 +70,6 @@ export default {
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
-    document.querySelector(".menus").setAttribute("style", "opacity: 0");
-    var menuitems =  document.querySelectorAll(".menus a");
-    menuitems.forEach(element => {
-      console.log(element);
-      element.setAttribute("style", "opacity: 0");
-    });
-
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
