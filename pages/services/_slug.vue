@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="back-image"></div>
-    <div class="main-h">
+    <div class="service-h">
       <div class="container">
         <div class="row middle-xs">
           <div class="col-xs-12">
-            <img  width="58px" height="56px" :src="getImgUrl('consultation')" alt="">
+            <img  width="58px" height="56px" :src="getImgUrl(currentService.logo)" alt="">
             <div class="line"></div>
             <div class="slug-header-container">
-              <h1 class="slug-header" >{{title}}</h1>
+              <h1 class="slug-header" >{{currentService.name}}</h1>
             </div>
           </div>
         </div>
@@ -17,7 +17,7 @@
     <div class="container c">
       <div class="row">
         <div class="col-md-6 col-sm-12 col-xs-12 ">
-          <p class="intro-panel-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset</p>
+          <p class="intro-panel-text">{{currentService.text}}</p>
         </div>
         <div class="col-md-6 col-sm-12 col-xs-12">
           <div class="intro-panel-image"></div>
@@ -56,6 +56,45 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      services: [
+        {
+          url: "services/consultation",
+          logo: "consultation",
+          name: "Инвистиционный консалтинг",
+          description:
+            "Клиенты DN | Capital Advisors заслуживают всесторонней поддержки на пути достижении своих финансовых целей. Мы предлагаем объективную консультационную оценку и прокладываем тропинку к получению макимально эффективного результата в соответствии с целями, практикуя индивидуальный подход.",
+          hover: false,
+          text: 'Мы независимы и свободны от влияния третьей стороны. Мы предлагаем объективные, беспристрастные советы, которые помогут нашим клиентам принимать важные решения. Как независимая консультационная  компания, основанная на вознаграждениях, мы выступаем в качестве фидуциария и не имеем никакого отношения к какой-либо брокерско-дилерской или инвестиционной группе, которая побуждает нас продавать их конкретные продукты. Эта независимость позволяет нам ориентироваться на потребности наших клиентов, а не на собственные. Что хорошо для наших клиентов, то хорошо и для нас.',
+          ulHeader: "Индивидуальная инвестиционная стратегия в соответствии с вашими целями.",
+          list: ["Major Purchase", "Build Wealth", "Safety Net"]
+        },
+        {
+          url: "services/commerce",
+          logo: "commerce",
+          name: "Торговые Рекомендации",
+          description:
+            "DN | Capital Advisors помогает клиентам справиться с волатильностью рынка, предоставляя ценные торговые рекомендации для разных сегментов. Наши рекомендации формируются путем идеального сочетания фундаментального и технического анализа, проводимого нашими опытными аналитиками. Мы предоставляем ежемесячные, а также ежеквартальные подписки для наших клиентов в соответствии с их потребностями.",
+          hover: false,
+          text: "Common shares represent ownership in a company and a claim (dividends) on a portion of profits. Investors get one vote per share to elect the board members, who oversee the major decisions. Over the long term, common stock, by means of capital growth, yields higher returns than almost every other investment. If a company goes bankrupt and liquidates, the common shareholders will not receive money until the creditors, bondholders and preferred shareholders are paid. Research stocks that fit within your strategy and invest in stocks that have the potential to help you meet your specific goals.",
+          ulHeader: "Develop a Diversified Asset Allocation Strategy",
+          list: ["Invest in approximately 20 to 30 stocks in at least six to eight sectors with different investment characteristics.", "No more than 20% of the total value of your stock portfolio should be in any one sector.", "No more than 10% of the total value of your stock portfolio should be in any one stock.", "You should invest a minimum of approximately 3% to 4% of the total value of your stock portfolio in each stock."]
+        },
+        {
+          url: "services/commerce2",
+          logo: "combo-chart",
+          name: "Хедж-Фонд",
+          description:
+            "В DN |Capital Advisors мы понимаем стремление клиентов к постоянному росту, и готовы обеспечить еще более высокую доходность с течением времени. Хедж-фонд, как инструмент, помогает диверсифицировать инвестиционные портфели клиентов и эффективно управлять рисками.",
+          hover: false,
+          text: "В DN |Capital Advisors мы понимаем стремление клиентов к постоянному росту, и готовы обеспечить еще более высокую доходность с течением времени. Хедж-фонд, как инструмент, помогает диверсифицировать инвестиционные портфели клиентов и эффективно управлять рисками.",
+          ulHeader: "Investing in Mutual Funds",
+          list: [""]
+        }
+      ]
+    };
+  },
   computed: {
     name() {
       return this.$route.params.slug;
@@ -66,7 +105,14 @@ export default {
 			} else if (this.$route.params.slug === "commerce2" ){
         return "Хэдж-Фонд";
       } else return "Инвистиционный Консалтинг";
-		}
+    },
+    currentService() {
+      if (this.$route.params.slug === "commerce") {
+				return this.services[1];
+			} else if (this.$route.params.slug === "commerce2" ){
+        return this.services[2];
+      } else return this.services[0];
+    }
   },
 	methods: {
     getImgUrl(name) {
@@ -123,7 +169,7 @@ h2 {
   text-align: justify;
   margin: 0;
 }
-.main-h {
+.service-h {
   padding-top: 170px;
   padding-bottom: 100px;
   height: 100%;
@@ -150,7 +196,7 @@ h2 {
   height: 4px;
 }
 @media (max-width: 40em) {
-  .main-h {
+  .service-h {
     padding-top: 80px;
     padding-bottom: 80px;
   }
@@ -184,7 +230,7 @@ h2 {
 }
 }
 @media (min-width: 40em) and (max-width: 50em) {
-  .main-h {
+  .service-h {
     padding-top: 100px;
     padding-bottom: 100px;
   }

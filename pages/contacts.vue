@@ -13,10 +13,7 @@
       </div>
     </div>
     <div class="container c">
-      <div class="row" style="border-radius: 10px;">
-        <div class="col-md-6 d-block-md d-none-xs d-none-sm" style="margin-right: 0 !important; padding-right:0 !important; padding-left: 0!important; border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
-          <div class="image"></div>
-        </div>
+      <div class="row center-sm" style="border-radius: 10px;">
         <div class="col-md-6 col-xs-12 col-sm-12 form" style="" @submit.prevent="submit">
             <p class="label">Ваш email</p>
             <input class="input"  v-model="email" placeholder="alisher@foxout.kz" required>
@@ -63,7 +60,6 @@ export default {
   margin-bottom: 100px;
   /* margin: 48px 0 149px; */
   /* padding:  */
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
   border-radius: 10px;
 }
 .image {
@@ -75,8 +71,8 @@ export default {
 .form {
   height: 100%;
   padding: 26px 43px 20px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 10px;
+  box-shadow: 0 13px 20px 8px rgba(0, 0, 0, 0.06);
 }
 .input {
   border: 1px solid #f3f3f3;
@@ -100,6 +96,7 @@ textarea {
   font-family: "SFUI-Bold", "Lato-Regular", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
+  text-align: left;
 }
 .btn-container {
   display: flex;

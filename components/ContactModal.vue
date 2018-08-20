@@ -1,10 +1,7 @@
 <template>
     <div class="modal" @click="checkClassName">
         <div class="container c">
-        <div class="row center-sm box-shadow">
-            <div class="col-md-6 d-block-md d-none-xs d-none-sm" style="margin-right: 0 !important; padding-right:0 !important; padding-left: 0!important; border-radius: 10px;">
-            <div class="image"></div>
-            </div>
+        <div class="row center-sm">
             <div class="col-md-6 col-xs-12 col-sm-6 form" @submit.prevent="submit" style="margin-left: 0 !important;">
                 <p class="label">Ваш email</p>
                 <input class="input"  v-model="email" placeholder="alisher@foxout.kz" required>
@@ -94,8 +91,8 @@ export default {
   height: 100%;
   padding: 26px 43px 20px;
   background-color: #ffffff;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px !important;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
 }
 .input {
   border: 1px solid #f3f3f3;

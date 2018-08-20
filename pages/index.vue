@@ -40,7 +40,7 @@
         <div class="row">
           <div class="col-xs-12">
             <h1>О нас</h1>
-            <h3 class="thined">Мы признаем, что выбор «правильного» партнера по управлению капиталом это очень индивидуальное решение, которое может предоставить вам и вашей семье финансовый мир и безопасность. Не существует компании, которая идеально подходит для всех, поэтому мы в DN | Capital Advisors предлагаем Вам самим выбрать финансового советника из нашего основного капитала — опытных и квалифицированных специалистов. Поскольку выбор «правильного» советника окажет значительное влияние на вас и вашу семью на долгие годы, мы бы хотели обратить внимание на наш основной критерий формирования команды — мы выбираем людей, конгруэтных с ценностями и принципами компании. Мы приветствуем Вас, чтобы понять и принять наш подход.
+            <h3 class="thined" style="color: #565656">Мы признаем, что выбор «правильного» партнера по управлению капиталом это очень индивидуальное решение, которое может предоставить вам и вашей семье финансовый мир и безопасность. Не существует компании, которая идеально подходит для всех, поэтому мы в DN | Capital Advisors предлагаем Вам самим выбрать финансового советника из нашего основного капитала — опытных и квалифицированных специалистов. Поскольку выбор «правильного» советника окажет значительное влияние на вас и вашу семью на долгие годы, мы бы хотели обратить внимание на наш основной критерий формирования команды — мы выбираем людей, конгруэтных с ценностями и принципами компании. Мы приветствуем Вас, чтобы понять и принять наш подход.
             </h3>
           </div>
         </div>
@@ -54,7 +54,7 @@
             <div class="row">
               <div class="col-xs-12 col-sm-4 col-md-4" v-for="item in biggerBetters" :key="item.id">
                 <div class="bb-item">
-                  <h1 class="bb-item-name">
+                  <h1 class="bb-item-name" style="margin:0;">
                   <span class="pre">{{item.pre}}</span>
                   <countTo class="bb-name" ref="counter" :startVal='startVal' :endVal='parseInt(item.name)' :duration='3000' :autoplay="false"></countTo>
                   <span class="suf">{{item.suf}}</span>
@@ -111,21 +111,21 @@ export default {
           pre: "$",
           suf: "+",
           description:
-            "Praesent eget suscipit enim. Nunc id accumsan tortor, gravida sollicitudin lorem. Cras felis dui, bibendum a leo non, consequat aliquam quam. Fusce vestibulum lorem ex, in rhoncus turpis varius et. Pellentesque auctor, lectus a accumsan feugiat, ipsum lorem volutpat turpis, id pharetra eros purus eget leo."
+            "Миллионов долларов доверили нам клиенты"
         },
         {
           name: "20",
           pre: "",
           suf: "%",
           description:
-            "Praesent eget suscipit enim. Nunc id accumsan tortor, gravida sollicitudin lorem. Cras felis dui, bibendum a leo non, consequat aliquam quam. Fusce vestibulum lorem ex, in rhoncus turpis varius et. Pellentesque auctor, lectus a accumsan feugiat, ipsum lorem volutpat turpis, id pharetra eros purus eget leo."
+            "Среднегодовая доходность портфелей  в долларах"
         },
         {
           name: "30",
           pre: "",
           suf: "+",
           description:
-            "Praesent eget suscipit enim. Nunc id accumsan tortor, gravida sollicitudin lorem. Cras felis dui, bibendum a leo non, consequat aliquam quam. Fusce vestibulum lorem ex, in rhoncus turpis varius et. Pellentesque auctor, lectus a accumsan feugiat, ipsum lorem volutpat turpis, id pharetra eros purus eget leo."
+            "Более 30 лет совокупного опыта в инвестиционной сфере"
         }
       ],
       reasons: [
@@ -235,6 +235,7 @@ export default {
   width: 55px;
   height: 4px;
   background-color: #ffffff;
+  margin: 20px 0;
 }
 .suf {
   margin-left: -15px;
