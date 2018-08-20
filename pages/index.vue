@@ -51,7 +51,7 @@
       <div  ref="biggerbetter" class="bigger-better">
         <h1>Больше, лучше</h1>
           <div class="container">
-            <div class="row">
+            <div class="row center-xs center-sm start-md">
               <div class="col-xs-12 col-sm-4 col-md-4" v-for="item in biggerBetters" :key="item.id">
                 <div class="bb-item">
                   <h1 class="bb-item-name" style="margin:0;">
@@ -263,6 +263,20 @@ export default {
   margin-left: 26px;
   line-height: 20px;
   font-family: "SFUI-Light";
+}
+@media (max-width: 40em) {
+  .bb-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (min-width: 40em) and (max-width: 50em) {
+  .bb-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
 

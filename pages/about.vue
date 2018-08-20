@@ -13,7 +13,7 @@
       </div>
     </div>
   <div class="container c">
-    <div class="row">
+    <div class="row start-md center-sm center-xs">
       <div class="col-xs">
         <h1>Наша Команда</h1>
       </div>

@@ -28,7 +28,7 @@
 						<div class="blog-description">{{post.body}}</div>
 						<nuxt-link :to="`/blog/${post.id}`"><p class="read-more">read more</p></nuxt-link>
 					</div>
-          <div class="col-xs" style="margin-top: 60px"><h3>Ничего не найдено</h3></div>
+          <div v-else class="col-xs" style="margin-top: 60px"><h3>Ничего не найдено</h3></div>
 				
       </div>
       <div v-else class="row">
