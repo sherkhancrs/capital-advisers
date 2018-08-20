@@ -174,6 +174,7 @@ h2 {
   padding-bottom: 100px;
   height: 100%;
   color: white;
+  overflow: hidden;
 }
 .back-image {
   position: absolute;
@@ -188,7 +189,8 @@ h2 {
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter: blur(5px);
-  height: 407px;
+  height: 395px;
+  transform: scale(1.1); 
 }
 .line {
   background-color: #ef741c;
@@ -219,7 +221,7 @@ h2 {
     margin-top: 15px;
   }
   .back-image {
-    height: 300px;
+    height: 355px;
   }
   li::before {
   content: "•";
@@ -253,7 +255,7 @@ h2 {
     margin-top: 15px;
   }
   .back-image {
-    height: 365px;
+    height: 355px;
   }
   li::before {
   content: "•";
