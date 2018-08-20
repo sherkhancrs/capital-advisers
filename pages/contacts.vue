@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="container c">
-      <div class="row center-sm" style="border-radius: 10px;">
+      <div class="row" style="border-radius: 10px;">
         <div class="col-md-6 col-xs-12 col-sm-12 form" style="" @submit.prevent="submit">
             <p class="label">Ваш email</p>
             <input class="input"  v-model="email" placeholder="alisher@foxout.kz" required>

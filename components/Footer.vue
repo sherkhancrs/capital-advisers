@@ -22,7 +22,7 @@ export default {
     return {
       urls: [
         {
-          name: "COMPANY",
+          name: "Компания",
           list: [
             { name: "Главная", url: "/" },
             { name: "О нас", url: "/about" },
@@ -33,7 +33,7 @@ export default {
           ]
         },
         {
-          name: "SERVICES",
+          name: "Услуги",
           list: [
             { name: "Invest holding", url: "" },
             { name: "Trading recomendation", url: "" },
@@ -41,11 +41,11 @@ export default {
           ]
         },
         {
-          name: "LOCATION",
+          name: "Локация",
           list: [{ name: "Esentai Tower, Almaty, 050000" }]
         },
         {
-          name: "CONNECTED",
+          name: "Социальные сети",
           list: [
             { name: "Twitter", url: "" },
             { name: "Linkeind", url: "" },

@@ -18,7 +18,7 @@
         <h1>Наша Команда</h1>
       </div>
     </div>
-    <div class="row">
+    <div class="row" style="margin-top: 20px;">
       <div class="col-xs-12 col-sm-6 col-md-3"  v-for="member in 4" :key="member.id">
         <div class="member">
 						<div class="member-photo"></div>
@@ -65,5 +65,25 @@ p {
 .c {
   padding-top: 70px;
   padding-bottom: 70px;
+}
+@media (max-width: 40em) {
+  .member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .member-photo {
+    width: 100%;
+  }
+}
+@media (min-width: 40em) and (max-width: 50em) {
+  .member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .member-photo {
+    width: 100%;
+  }
 }
 </style>

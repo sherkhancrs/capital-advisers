@@ -4,12 +4,13 @@
     <div class="container">
       <div class="row middle-xs">
         <div class="col-xs-2">
-          <div class="logo"></div>
+          <!-- <div class="logo"></div> -->
+          <img src="~/static/LOGO.png" height="50px" alt="">
         </div>
         <div class="col-xs">
           <div class="row end-xs">
             <div class="col-xs mobile-hide tablet-hide" v-for="item in menu" :key="item.id">
-              <nuxt-link class="header-menu-item regular"  :to="item.url" >
+              <nuxt-link class="header-menu-item regular" :class="{'dark-color': isLight}" :to="item.url" >
               {{item.name}}
               </nuxt-link>
             </div>
@@ -26,7 +27,7 @@
     </div>
     
   </div>
-  <div class="menus" v-show="menuShow">
+  <div class="menus"  :class="{'menu-hidden': !menuShow}">
     <nuxt-link @click.native="toggleMenu" class="header-menu-item" v-for="item in menu" :key="item.id" :to="item.url">
     {{item.name}}
     </nuxt-link>
@@ -62,8 +63,20 @@ export default {
       }
   }
   },
+  computed: {
+    isLight() {
+      return this.$route.path === "/about" || this.$route.path === "/faq";
+    }
+  },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
+    document.querySelector(".menus").setAttribute("style", "opacity: 0");
+    var menuitems =  document.querySelectorAll(".menus a");
+    menuitems.forEach(element => {
+      console.log(element);
+      element.setAttribute("style", "opacity: 0");
+    });
+
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -78,6 +91,7 @@ export default {
   position: fixed;
   top: 0;
   z-index: 11;
+  transition: 0.3s all ease-in-out;
 }
 .logo {
   width: 175px;
@@ -92,6 +106,11 @@ export default {
   margin: 4px 0;
   z-index: 10;
 }
+.menu-hidden {
+  opacity: 0 !important; 
+  height: 0;
+  overflow: hidden;
+}
 .menus {
   display: flex;
   flex-direction: column;
@@ -100,8 +119,10 @@ export default {
   /* background-color: #f9f9f9; */
   background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
-  margin-top: 50px;
+  margin-top: 64px;
   z-index: 9;
+  transition: 0.3s all ease-in-out;
+  opacity: 1;
 }
 
 .menus a {
@@ -110,6 +131,8 @@ export default {
   font-size: 17px !important;
   color: white !important;
   z-index: 9;
+  transition: 0.3s all ease-in-out;
+  opacity: 1;
 }
 
 .header-menu {
@@ -137,7 +160,10 @@ export default {
   background-color: rgba(0, 0, 0, 0.9) !important;
 }
 .dark-nav {
-  background-color: rgba(0, 0, 0, 0.7) !important;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.dark-color {
+  color: black !important;
 }
 @media (max-width: 40em) {
   .web-hide {
