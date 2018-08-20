@@ -142,31 +142,34 @@ textarea:focus {
 .page-item {
 	margin-left: 10px;
 	text-decoration: none;
-	border: 1px solid #ef741c;
+	color: black;
+	background-color: #d9d9d9;
 	border-radius: 3px;
-	padding: 3px;
+	padding: 8px 12px;
 }
 
 .page-prev {
 	margin-right: 7px;
-	border: 1px solid #ef741c;
+	color: black;
+	background-color: #d9d9d9;
 	border-radius: 3px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 3px;
-	margin-top: -5px;
+	padding: 8px 12px;
+	margin-top: -9px;
 }
 
 .page-next {
 	margin-left: 10px;
-	border: 1px solid #ef741c;
+	color: black;
+	background-color: #d9d9d9;
 	border-radius: 3px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 3px;
-	margin-top: -5px;
+	padding: 8px 12px;
+	margin-top: -9px;
 }
 
 .page-next:hover,
