@@ -141,6 +141,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .circle-closed {
   background-color: #e4e4e4;
