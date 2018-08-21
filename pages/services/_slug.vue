@@ -23,7 +23,7 @@
           <div class="intro-panel-image"></div>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-xs-12">
           <h2 class="intro-header">Lorem ipsum is simply dummy</h2>
         </div>
@@ -34,23 +34,7 @@
               <li>Lorem ipsum is simply dummy text of the printing and typesetting industry</li>
               <li>Lorem ipsum is simply dummy text of the printing and typesetting industry</li>
           </ul>
-      </div>
-        <!-- <div class="intro-panel">
-            <div class="intro-panel-col">
-                
-            </div>
-            <div class="intro-panel-col panel-image">
-							
-						</div>
-        </div> -->
-				<!-- <div class="content">
-					<h2>Lorem ipsum is simply dummy</h2>
-					<ul>
-						<li>Lorem ipsum is simply dummy text of the printing and typesetting industry</li>
-						<li>Lorem ipsum is simply dummy text of the printing and typesetting industry</li>
-						<li>Lorem ipsum is simply dummy text of the printing and typesetting industry</li>
-					</ul>
-				</div> -->
+      </div> -->
     </div>
   </div>
 </template>
@@ -60,7 +44,7 @@ export default {
     return {
       services: [
         {
-          url: "services/consultation",
+          url: "services/financial-planning",
           logo: "consultation",
           name: "Инвистиционный консалтинг",
           description:
@@ -71,7 +55,7 @@ export default {
           list: ["Major Purchase", "Build Wealth", "Safety Net"]
         },
         {
-          url: "services/commerce",
+          url: "services/stocks",
           logo: "commerce",
           name: "Торговые Рекомендации",
           description:
@@ -82,7 +66,7 @@ export default {
           list: ["Invest in approximately 20 to 30 stocks in at least six to eight sectors with different investment characteristics.", "No more than 20% of the total value of your stock portfolio should be in any one sector.", "No more than 10% of the total value of your stock portfolio should be in any one stock.", "You should invest a minimum of approximately 3% to 4% of the total value of your stock portfolio in each stock."]
         },
         {
-          url: "services/commerce2",
+          url: "services/hedge-fund",
           logo: "combo-chart",
           name: "Хедж-Фонд",
           description:
@@ -99,17 +83,10 @@ export default {
     name() {
       return this.$route.params.slug;
     },
-    title() {
-			if (this.$route.params.slug === "commerce") {
-				return "Торговые Рекомендации";
-			} else if (this.$route.params.slug === "commerce2" ){
-        return "Хэдж-Фонд";
-      } else return "Инвистиционный Консалтинг";
-    },
     currentService() {
-      if (this.$route.params.slug === "commerce") {
+      if (this.$route.params.slug === "stocks") {
 				return this.services[1];
-			} else if (this.$route.params.slug === "commerce2" ){
+			} else if (this.$route.params.slug === "hedge-fund" ){
         return this.services[2];
       } else return this.services[0];
     }

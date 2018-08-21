@@ -126,7 +126,7 @@ h1 {
 .question {
   display: inline-flex;
   justify-content: space-between;
-  height: 90px;
+  min-height: 90px;
   width: 100%;
   padding: 0 24px;
   align-items: center;
@@ -157,6 +157,7 @@ h1 {
   width: 48px;
   background-color: #ef741c;
   margin-left: 24px;
+  margin-top: 5px;
 }
 @media (max-width: 40em) {
   h1 {

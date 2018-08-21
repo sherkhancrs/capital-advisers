@@ -35,9 +35,9 @@ export default {
         {
           name: "Услуги",
           list: [
-            { name: "Invest holding", url: "" },
-            { name: "Trading recomendation", url: "" },
-            { name: "Handge Fund", url: "" }
+            { name: "Invest holding", url: "/services/financial-planning" },
+            { name: "Trading recomendation", url: "/services/stocks" },
+            { name: "Hedge Fund", url: "/services/hedge-fund" }
           ]
         },
         {

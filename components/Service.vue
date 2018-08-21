@@ -27,7 +27,7 @@ export default {
     return {
       services: [
         {
-          url: "services/consultation",
+          url: "services/financial-planning",
           logo: "consultation",
           name: "Инвистиционный консалтинг",
           description:
@@ -35,7 +35,7 @@ export default {
           hover: false
         },
         {
-          url: "services/commerce",
+          url: "services/stocks",
           logo: "commerce",
           name: "Торговые Рекомендации",
           description:
@@ -43,7 +43,7 @@ export default {
           hover: false
         },
         {
-          url: "services/commerce2",
+          url: "services/hedge-fund",
           logo: "combo-chart",
           name: "Хедж-Фонд",
           description:

@@ -16,8 +16,8 @@
       <div class="row">
         <input  @keyup.enter="search" v-model="searchKey" type="text" class="input" placeholder="Type to search ...">
       </div>
-      <div class="row" style="padding-top: 50px;" v-if="posts.results">
-					<div v-if="posts.results.length > 0" class="blog-panel col-xs-12 col-sm-6 col-md-4" v-for="(post, index) in posts.results" :key="post.id">
+      <div v-if="posts.count" class="row" style="padding-top: 50px;">
+					<div v-if="posts.count > 0" class="blog-panel col-xs-12 col-sm-6 col-md-4" v-for="(post, index) in posts.results" :key="post.id">
 						<nuxt-link :to="`/blog/${post.id}`">
               <div class="blog-image" :style="{ 'background-image': 'linear-gradient(to bottom,rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.3) 100%),url(' + post.image + ')', 'background-size': 'cover'}">
                   <h1 class="post-title" :class="{'first-post-title': index === 0}">{{post.title}}</h1>
@@ -28,11 +28,14 @@
 						<div class="blog-description">{{post.body}}</div>
 						<nuxt-link :to="`/blog/${post.id}`"><p class="read-more">read more</p></nuxt-link>
 					</div>
-          <div v-else class="col-xs" style="margin-top: 60px"><h3>Ничего не найдено</h3></div>
-				
+          <div v-else class="col-xs">
+            <h3>Ничего не найдено</h3>
+          </div>
       </div>
       <div v-else class="row">
-        <div class="col-xs" style="margin-top: 60px"><h3>Ничего не найдено</h3></div>
+        <div class="col-xs" style="margin-top: 20px">
+          <h3>Ничего не найдено</h3>
+          </div>
       </div>
       <div class="row center-xs">
         <paginate 
@@ -110,10 +113,10 @@ button {
   padding: 16px 25px;
   outline: none;
 }
-.blog-panel{
+.blog-panel {
   margin-bottom: 30px;
 }
-.blog-panel:first-child{
+.blog-panel:first-child {
   flex-basis: 66.66% !important;
   max-width: 66.66% !important;
 }
@@ -164,7 +167,6 @@ p {
   .blog-panel:first-child {
     flex-basis: 100% !important;
     max-width: 100% !important;
-    
   }
   .first-post-title {
     font-size: 20px;
@@ -173,7 +175,6 @@ p {
   }
 }
 @media (min-width: 40em) and (max-width: 50em) {
-  
   .blog-panel:first-child {
     flex-basis: 50% !important;
     max-width: 50% !important;
