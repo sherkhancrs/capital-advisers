@@ -1,7 +1,5 @@
 <template>
     <div class="container">
-      <div class="row center-xs">
-        <div class="col-xs-10">
           <div class="row service-types start-xs">
             <div class="col-xs-12 col-md-4" v-for="(service, index) in services" :key="service.id" >
                 <nuxt-link :to="service.url">
@@ -10,15 +8,12 @@
                       <img  width="33px" height="33px" :src="getImgUrl(service.logo, index)" :alt="service.logo">
                     </div></nuxt-link>
                     <nuxt-link :to="service.url"><h3 class="service-name">{{service.name}}</h3></nuxt-link>
-                    <p style="color: #565656">{{service.description}}</p>
+                    <p style="color: #565656; text-align: center">{{service.description}}</p>
                     <nuxt-link :to="service.url"><button class="button-reverse" style="align-self: center;margin-top: 30px;">Перейти</button></nuxt-link>
                   </div>
                 </nuxt-link>
             </div>
           </div>
-        </div>
-      </div>
-      
     </div>
 </template>
 <script>

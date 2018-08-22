@@ -19,6 +19,8 @@
             <input class="input"  v-model="email" placeholder="johndoe@gmail.com" required>
             <p class="label">Ваше имя</p>
             <input class="input" v-model="name" placeholder="John Doe">
+            <p class="label">Ваш номер телефона</p>
+            <input class="input" v-model="phone" placeholder="+77071113399">
             <p class="label">Ваше сообщение</p>
             <textarea v-model="text" required></textarea>
             <div class="btn-container"><button type="submit" @click="submit" class="button-reverse">Send</button></div>
@@ -33,7 +35,8 @@ export default {
     return {
       email: "",
       name: "",
-      text: ""
+      text: "",
+      phone: ""
     };
   },
   methods: {
@@ -42,6 +45,7 @@ export default {
       this.email = "";
       this.name = "";
       this.text = "";
+      this.phone = "";
     }
   }
 };
