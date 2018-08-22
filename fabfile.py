@@ -1,15 +1,15 @@
 from fabric.api import run, sudo, env, hosts
 
 
-server_ip = '142.93.80.207'
+server_ip = '195.201.217.12'
 
 @hosts([server_ip])
 def prod():
     env.hosts = [server_ip]
     env.branch = 'master'
-    env.app_path = '/home/linus/capital-advisers'
-    env.user = 'linus'
-    env.password = 'torvalds'
+    env.app_path = '/home/richard/capital-advisers'
+    env.user = 'richard'
+    env.password = 'stallman'
 
 def git_stash():
     run('cd %s; git checkout %s; git stash' % (env.app_path, env.branch))
